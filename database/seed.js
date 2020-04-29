@@ -75,7 +75,9 @@ const emails = [
   'Stupd@gmail.com'
 ];
 
-const ageGroup = [true, false];
+const location = ['Los Angeles', 'London', 'Texas', 'Hawaii', 'Japan', 'Seattle', 'Kyoto', 'Portland', 'Italy', 'France', 'Denver', 'New York', 'SGV', 'Irvine', 'Hong Kong', 'Rome', 'Spain', 'Berlin']
+
+// const ageGroup = [true, false];
 
 const age = [
   'noAge',
@@ -104,5 +106,38 @@ const randomAge = () => {
   return newAgeGroup;
 };
 
-console.log(randomAge());
-//seperate function to create age group
+const bodyTypes = ['Athletic', 'Curvy', 'Lean', 'Muscular', 'Petite', 'Slim', 'Solid']
+
+const createBodyType = () => {
+  let createbodyType = {}
+  for(let i = 0; i < bodyTypes.length; i++){
+    createbodyType[bodyTypes[i]] = false;
+  }
+  return createbodyType
+}
+
+//random bodytype input for database
+const randomBodyType = () => {
+  let newBodyType = createBodyType()
+  let randomBodyType = Math.floor(Math.random() * bodyTypes.length)
+  newBodyType[bodyTypes[randomBodyType]] = true;
+  return newBodyType;
+}
+
+const wearTo = ['Practice Yoga', 'Dance', 'Cycle', 'Run', 'Wear Casually']
+
+const createWearGear = () => {
+  let createWearTo = {}
+  for(let i = 0; i < wearTo.length; i++){
+    createWearTo[wearTo[i]] = false;
+  }
+  return createWearTo
+}
+//random wear to input for database
+const randomWearTo = () => {
+  let newWearTo = createWearGear()
+  let randomWear = Math.floor(Math.random() * wearTo.length)
+  newWearTo[wearTo[randomWear]] = true;
+  return newWearTo
+}
+
