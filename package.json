@@ -4,7 +4,10 @@
   "description": "replica of lululemon reviews module for educational purposes",
   "main": "./server/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon",
+    "build": "webpack --w --mode development",
+    "watch": "webpack-dev-server --open"
   },
   "repository": {
     "type": "git",
