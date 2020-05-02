@@ -13,7 +13,7 @@
   width: 600px;
   height: auto;
   top: 8%;
-  /* left: 25%; */
+  /* left: 15%; */
   max-width: 100%;
   max-height: 100%;
 }
@@ -37,8 +37,28 @@
   max-width: 100%;
   padding-left: 5%;
 }
+@media only screen and (min-width: 633px){
+  .review-search-modal {
+    width: 600px;
+    left: 5%;
+  }
+}
 
-@media only screen and (min-width: 768px){
+@media only screen and (min-width: 668px){
+  .review-search-modal {
+    width: 600px;
+    left: 10%;
+  }
+}
+
+@media only screen and (min-width: 710px){
+  .review-search-modal {
+    width: 600px;
+    left: 15%;
+  }
+}
+
+@media only screen and (min-width: 802px){
   .review-search-modal {
     width: 600px;
     left: 25%;
