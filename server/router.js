@@ -1,13 +1,8 @@
-const router = require('express').Router()
-const controller = require('./controller')
+const router = require('express').Router();
+const controller = require('./controller');
 
-router.route('/reviews')
-.get(controller.getAll)
+router.route('/reviews').get(controller.getAll);
 
-router.route('/reviews/:id')
-.get(controller.getOne)
+router.route('/reviews/:id').get(controller.getOne);
 
-
-
-
-module.exports = router
+module.exports = router;

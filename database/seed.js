@@ -1,4 +1,5 @@
 var model = require('./index');
+var faker = require('faker')
 
 let createProductsWithReviews = (i) => {
   let product = {};
@@ -28,7 +29,7 @@ let createProductsWithReviews = (i) => {
       'Mehh',
       'Fits',
       'Thank you!',
-      'Perfect pants',
+      'Perfect',
       'Are a must!',
       'Overpriced',
       'Super Comfy',
@@ -70,24 +71,21 @@ let createProductsWithReviews = (i) => {
       'office',
       'gym',
       'rock climbing',
-      'sucks',
+      'horrible',
       'second pair',
       'doing well',
       'well done',
       'will buy more',
       'other',
       'picture',
-      'instagram',
-      'tik-tok',
-      'ratchet',
-      'clubbing',
-      'girls night out',
-      'pub crawl',
+      'traveling',
+      'awesome',
+      'freedom',
       'sleeping'
     ];
     let evenMoreWords = [
       'saggy',
-      'sexy',
+      'comfy',
       'never washed',
       'had a problem',
       'gift',
@@ -244,15 +242,11 @@ let createProductsWithReviews = (i) => {
       title: `${reviewTitle[Math.floor(Math.random() * reviewTitle.length)]} ${
         adjective[Math.floor(Math.random() * adjective.length)]
       } ${noun[Math.floor(Math.random() * noun.length)]}`,
-      review: `${pronouns[Math.floor(Math.random() * pronouns.length)]} ${
-        connectingWords[Math.floor(Math.random() * connectingWords.length)]
-      } ${moreWords[Math.floor(Math.random() * moreWords.length)]} ${
-        evenMoreWords[Math.floor(Math.random() * evenMoreWords.length)]
-      }`,
+      review: faker.lorem.paragraph(),
       recommendation:
         recommendation[Math.floor(Math.random() * recommendation.length)],
-      nickname: username[Math.floor(Math.random() * username.length)],
-      email: emails[Math.floor(Math.random() * emails.length)],
+      nickname: faker.internet.userName(),
+      email: faker.internet.email(),
       age: randomAgeGen,
       bodyType: randomBodyTypeGen,
       location: location[Math.floor(Math.random() * location.length)],
