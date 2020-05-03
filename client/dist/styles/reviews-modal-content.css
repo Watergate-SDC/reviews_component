@@ -1,0 +1,27 @@
+.modal-header{
+  margin-left: 20px;
+}
+
+.modal-review-count-container{
+  margin-left: 30px;
+  padding-bottom: 30px;
+}
+
+.modal-content-container{
+  margin-left: 25px;
+}
+
+.modal-content-header{
+  display: flex;
+  flex-direction: row;
+}
+
+.modal-review-nickname {
+  margin-left: 5px;
+  font-size: 13px;
+}
+
+.modal-review-created {
+  margin-left: 5px;
+  font-size: 13px;
+}

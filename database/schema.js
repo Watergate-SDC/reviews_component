@@ -1,4 +1,4 @@
-var mongoose = require('mongoose')
+var mongoose = require('mongoose');
 
 var ReviewsSchema = new mongoose.Schema({
   reviews: [
@@ -27,7 +27,7 @@ var ReviewsSchema = new mongoose.Schema({
         petite: Boolean,
         slim: Boolean,
         solid: Boolean
-      }, 
+      },
       location: String,
       wearTo: {
         practiceYoga: Boolean,
@@ -38,15 +38,16 @@ var ReviewsSchema = new mongoose.Schema({
       },
       likes: String,
       dislikes: String,
+      created_at: {
+        type: Date,
+        default: new Date()
+      }
     }
   ],
   image: String
-})
+});
 
-
-
-module.exports = ReviewsSchema
-
+module.exports = ReviewsSchema;
 
 /* 
 First Schema

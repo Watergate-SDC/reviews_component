@@ -1,0 +1,47 @@
+.main-search-bar-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.modal-review-search-input {
+  height: 12px;
+  width: 20em;
+  padding: 0.5em 10px 0.5em 10px;
+  border: 1px solid rgb(233, 233, 233);
+  border-radius: 3px 0% 0% 3px;
+  /* box-shadow: none; */
+}
+
+.modal-review-search-button{
+  height: 25px;
+  width: 101.302px;
+  font-size: 20px;
+  color: rgb(100, 100, 100);
+  background-color: rgb(233, 233, 233);
+  border: none;
+}
+
+@media only screen and (min-width: 633px){
+
+}
+
+@media only screen and (min-width: 668px){
+
+}
+
+@media only screen and (min-width: 710px){
+  /* needs wider input, search icon show on the left, right search icon
+  dissapears */
+  .modal-review-search-input {
+    width: 430px;
+  }
+  .review-search-icon{
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 802px){
+  .modal-review-search-input {
+    width: 420px;
+  }  
+}
