@@ -1,3 +1,7 @@
+body {
+  font-family: 'open Sans', sans-serif;
+}
+
 .search-modal {
   position: absolute !important;
   top: 0;
@@ -41,8 +45,12 @@
   margin-top: 1vh;
 }
 
-.modal-review-stars {
-  font-size: 11px;
+.modal-header, h2 {
+  font-weight: normal;
+}
+
+.modal-review-content {
+  line-height: 1.6;
 }
 
 @media only screen and (min-width: 633px){

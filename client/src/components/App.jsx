@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import '../../dist/styles/reviews.modal.search.css'
-import '../../dist/styles/reviews.modal.css'
-import '../../dist/styles/reviews-modal-content.css'
-import MainSearchBar from './searchbar/MainSearchBar.jsx'
-import MainSearchButton from './searchbutton/MainSearchButton.jsx'
-import SearchModal from '../components/searchmodal/SearchModal.jsx'
-
+import '../../dist/styles/reviews.modal.search.css';
+import '../../dist/styles/reviews.modal.css';
+import '../../dist/styles/reviews-modal-content.css';
+import MainSearchBar from './searchbar/MainSearchBar.jsx';
+import MainSearchButton from './searchbutton/MainSearchButton.jsx';
+import SearchModal from '../components/searchmodal/SearchModal.jsx';
 
 export default class App extends Component {
   constructor(props) {
@@ -15,13 +14,16 @@ export default class App extends Component {
       reviewData: [],
       filteredReviewData: [],
       modalToggle: false,
-      reviewSearch: ''
+      reviewSearch: '',
+      singleReview: [],
+      singleReviewToggle: false
     };
     this.getData = this.getData.bind(this);
     this.modalHandler = this.modalHandler.bind(this);
     this.searchQueryChanger = this.searchQueryChanger.bind(this);
-    this.getFilteredData = this.getFilteredData.bind(this)
-    this.onSearchClick = this.onSearchClick.bind(this)
+    this.getFilteredData = this.getFilteredData.bind(this);
+    this.onSearchClick = this.onSearchClick.bind(this);
+    this.singleReviewClickHandler = this.singleReviewClickHandler.bind(this);
   }
 
   componentDidMount() {
@@ -30,15 +32,17 @@ export default class App extends Component {
   }
 
   getFilteredData() {
-    let {reviewSearch} = this.state 
-    axios.get(`/reviews/searchQuery/1`, {params: {query: reviewSearch}}).then((data) => {
-      this.setState(
-        {
-          filteredReviewData: data.data
-        },
-        () => console.log('All data retrieved', this.state)
-      );
-    });
+    let { reviewSearch } = this.state;
+    axios
+      .get(`/reviews/searchQuery/1`, { params: { query: reviewSearch } })
+      .then((data) => {
+        this.setState(
+          {
+            filteredReviewData: data.data
+          },
+          () => console.log('All data retrieved', this.state)
+        );
+      });
   }
 
   getData() {
@@ -52,35 +56,55 @@ export default class App extends Component {
     });
   }
 
-  modalHandler(){
+  modalHandler() {
     // e.preventDefault()
     this.setState({
       modalToggle: !this.state.modalToggle
-    })
+    });
   }
 
-  searchQueryChanger(e){
-    let {name, value} = e.target
-    this.setState({
-      [name]: value
-    }, () => console.log(this.state.reviewSearch))
+  searchQueryChanger(e) {
+    let { name, value } = e.target;
+    this.setState(
+      {
+        [name]: value
+      },
+      () => console.log(this.state.reviewSearch)
+    );
   }
 
-  onSearchClick(){
-    this.getFilteredData()
+  onSearchClick() {
+    this.getFilteredData();
     this.modalHandler();
   }
 
+  singleReviewClickHandler(data) {
+    this.setState({
+      singleReview: data
+    });
+  }
+
   render() {
+    console.log('APPP State', this.state)
     return (
       <div id="main-container">
         <hr className="search-line"></hr>
         <div className="main-search-bar-container">
-          <MainSearchBar searchQueryChanger={this.searchQueryChanger}/>
-          <span><MainSearchButton onSearchClick={this.onSearchClick}/></span>
+          <MainSearchBar searchQueryChanger={this.searchQueryChanger} />
+          <span>
+            <MainSearchButton onSearchClick={this.onSearchClick} />
+          </span>
         </div>
         <div className="main-search-modal-container">
-          <SearchModal show={this.state.modalToggle} handleClose= {this.modalHandler} filteredReviewData={this.state.filteredReviewData} searchQueryChanger={this.searchQueryChanger} getFilteredData={this.getFilteredData}/>
+          <SearchModal
+            show={this.state.modalToggle}
+            handleClose={this.modalHandler}
+            filteredReviewData={this.state.filteredReviewData}
+            searchQueryChanger={this.searchQueryChanger}
+            getFilteredData={this.getFilteredData}
+            singleReview={this.singleReview}
+            singleReviewClickHandler={this.singleReviewClickHandler}
+          />
         </div>
         <hr className="search-line"></hr>
       </div>

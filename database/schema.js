@@ -44,7 +44,8 @@ var ReviewsSchema = new mongoose.Schema({
       }
     }
   ],
-  image: String
+  image: String,
+  productID: Number
 });
 
 module.exports = ReviewsSchema;

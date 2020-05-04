@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import moment from 'moment';
-import ModalSingleReview from './ModalSingleReview.jsx'
+import ModalSingleReview from './ModalSingleReview.jsx';
 
-export default function ModalContentEntry({ modalContent }) {
-  const [singleReview, setSingleReview] = useState(false);
+export default function ModalContentEntry({ modalContent, singleReviewClickHandler, toggleClickHandler}) {
+  // const [singleReview, setSingleReview] = useState(false);
   // console.log('modalcontententry', modalContent);
   let reviewStars = (rating) => {
     if (rating === 1) {
@@ -80,25 +80,69 @@ export default function ModalContentEntry({ modalContent }) {
       );
     }
   };
-  let reviewShow = () => {
-    if (singleReview === false) {
-      return (
-        <h3>
-          <a onClick={toggleClickHandler}>{modalContent.reviews.title}</a>
-        </h3>
-      );
+  // let reviewShow = () => {
+  //   if (singleReview === false) {
+  //     return (
+  //       <h3>
+  //         <a onClick={toggleClickHandler}>{modalContent.reviews.title}</a>
+  //       </h3>
+  //     );
+  //   } else {
+  //     return (
+  //       <div>
+  //         <ModalSingleReview modalContent={modalContent} />
+  //       </div>
+  //     );
+  //   }
+  // };
+  let showPartialReview = () => {
+    let { review } = modalContent.reviews;
+    if (review.split(' ').length > 13) {
+      let partialReview = review.split(' ').slice(0, 13);
+      return <div>{partialReview.join(' ')}.....</div>;
     } else {
-      return (
-        <div>
-          <ModalSingleReview modalContent={modalContent}/>
-        </div>
-      )
+      return <div>{review}</div>;
     }
   };
-  let toggleClickHandler = (e) => {
-    setSingleReview(!singleReview)
+  let modalQuestions = () => {
+    let { location, dislikes, likes } = modalContent.reviews;
+    if (location && dislikes && likes) {
+      return (
+        <div className="modal-content-product-question">
+          <div className="modal-content-question-1">
+            <div className="modal-content-question">
+              <span>Where are you from?</span>
+            </div>
+            <div className="modal-content-answers">{location}</div>
+          </div>
+          <div className="modal-content-question-2">
+            <div className="modal-content-question">
+              <span>In a few words, what did you like?</span>
+            </div>
+            <div className="modal-content-answers">{likes}</div>
+          </div>
+          <div className="modal-content-question-3">
+            <div className="modal-content-question">
+              <span>In a few words, what didn't you like?</span>
+            </div>
+            <div className="modal-content-answers">{dislikes}</div>
+          </div>
+        </div>
+      );
+    } else {
+      return <div className="modal-content-product-question-container"></div>;
+    }
+  };
+  // let toggleClickHandler = (e) => {
+  //   setSingleReview(!singleReview);
+  // };
+
+  let singleReviewHandler = (singleContent) => {
+    singleReviewClickHandler(singleContent);
+    toggleClickHandler()
   }
-  console.log('ModalContentEntry', modalContent)
+
+  console.log('ModalContentEntry', modalContent);
   return (
     <div className="modal-content">
       <div className="modal-content-header">
@@ -114,7 +158,16 @@ export default function ModalContentEntry({ modalContent }) {
         </div>
       </div>
       <div className="modal-content-title-container">
-        {reviewShow()}
+        <h3>
+          <a onClick={() => singleReviewHandler(modalContent.reviews)}>{modalContent.reviews.title}</a>
+        </h3>
+      </div>
+      <div className="modal-content-body-container">
+        {/* {modalContent.reviews.review} */}
+        {showPartialReview()}
+      </div>
+      <div className="modal-content-product-question-container">
+        {modalQuestions()}
       </div>
     </div>
   );

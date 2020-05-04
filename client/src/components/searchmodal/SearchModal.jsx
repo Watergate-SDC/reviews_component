@@ -3,10 +3,30 @@ import ModalSearchBar from '../searchbar/ModalSearchBar.jsx';
 import ModalSearchButton from '../searchbutton/ModalSearchButton.jsx';
 import ModalContent from './ModalContent.jsx'
 
-export default function SearchModal({ show, handleClose, filteredReviewData, getFilteredData, searchQueryChanger}) {
+export default function SearchModal({ show, handleClose, filteredReviewData, getFilteredData, searchQueryChanger, singleReview, singleReviewClickHandler}) {
+  const [singleViewToggle, setSingleViewToggle] = useState(false)
   const showHideClassName = show
     ? 'search-modal display-block'
     : 'modal display-none';
+
+  let singleViewToggleHandler = (e) => {
+    setSingleViewToggle(!singleReview);
+  };
+  
+  let reviewShow = () => {
+    if(singleViewToggle === false){
+      return (
+        <ModalContent filteredReviewData={filteredReviewData} singleReviewClickHandler={singleReviewClickHandler} toggleClickHandler={singleViewToggleHandler}/>
+      )
+    } else {
+      return (
+        <ModalSingleReview singleReview={singleReview}/>
+      )
+    }
+  }
+
+
+
   return (
     <div className={showHideClassName}>
       <div className="review-search-modal">
@@ -27,7 +47,8 @@ export default function SearchModal({ show, handleClose, filteredReviewData, get
           <span>Showing</span> <span className="modal-counter">?-?</span>
         </div>
         <div className="modal-review-content">
-          <ModalContent filteredReviewData={filteredReviewData}/>
+          {/* <ModalContent filteredReviewData={filteredReviewData} singleReview={singleReview}/> */}
+          {reviewShow()}
         </div>
       </div>
     </div>

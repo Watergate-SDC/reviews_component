@@ -4,7 +4,7 @@ var faker = require('faker')
 let createProductsWithReviews = (i) => {
   let product = {};
   product.image = `https://hrla36fec.s3.us-east-2.amazonaws.com/images/image${i}.png`;
-
+  product.productID = i;
   product.reviews = [];
   for (let j = 0; j < 10; j++) {
     let rating = [5, 4, 3, 2, 1];
@@ -96,51 +96,6 @@ let createProductsWithReviews = (i) => {
     ];
 
     let recommendation = [true, false];
-
-    let username = [
-      'Joshua0612',
-      'Freedom Ha',
-      'Kyo',
-      'Kim2Smooth',
-      'Siddharth117',
-      'OMGurl',
-      'TopStud441',
-      'RonaVis19',
-      'Running4Days',
-      'ABC-NotMe',
-      'Basic442',
-      'Christoferr',
-      'Jerrrmy',
-      'Annna332',
-      'Danny494',
-      'Jennifer444',
-      'TapDat44',
-      'Stupd',
-      'jurr',
-      'Dopemac',
-      'NookieMonster',
-      'KMan2674984',
-      'Jayjayjayjay',
-      'MrComfy',
-      'Trishm'
-    ];
-
-    let emails = [
-      'Joshua0612@gmail.com',
-      'Freedom@gmail.com',
-      'Kyo@gmail.com',
-      'Kim2Smooth@gmail.com',
-      'OMGurl@gmail.com',
-      'MrComfy@gmail.com',
-      'Siddharth117@gmail.com',
-      'ABC-NotMe@gmail.com',
-      'Christoferr@gmail.com',
-      'Jayjayjayjay@gmail.com',
-      'Dopemac@gmail.com',
-      'TapDat44@gmail.com',
-      'KMan2674984@gmail.com',
-      'Stupd@gmail.com'
-    ];
 
     let age = [
       'noAge',

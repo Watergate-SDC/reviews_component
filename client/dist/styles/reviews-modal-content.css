@@ -1,17 +1,25 @@
-.modal-header{
+.modal-header {
   margin-left: 20px;
 }
 
-.modal-review-count-container{
+.modal-review-count-container {
   margin-left: 30px;
   padding-bottom: 30px;
 }
 
-.modal-content-container{
+.modal-review-stars {
+  font-size: 11px;
+}
+
+.modal-content-title-container, h3 {
+  font-weight: normal;
+}
+
+.modal-content-container {
   margin-left: 25px;
 }
 
-.modal-content-header{
+.modal-content-header {
   display: flex;
   flex-direction: row;
 }
@@ -24,4 +32,33 @@
 .modal-review-created {
   margin-left: 5px;
   font-size: 13px;
+}
+
+.modal-content-product-question-container {
+  font-size: 13px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.modal-content-question {
+  font-weight: bold;
+}
+
+.modal-content-question-1 {
+  display: flex;
+  flex-direction: row;
+}
+
+.modal-content-question-2 {
+  display: flex;
+  flex-direction: row;
+}
+
+.modal-content-question-3 {
+  display: flex;
+  flex-direction: row;
+}
+
+.modal-content-answers {
+  margin-left: 5px;
 }
