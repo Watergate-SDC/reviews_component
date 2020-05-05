@@ -1,0 +1,18 @@
+.modal-single-review-content {
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.modal-single-writer {
+  display: flex;
+  flex-direction: row;
+}
+
+.modal-single-review-nickname{
+  font-size: 13px;
+}
+
+.modal-single-review-created {
+  margin-left: 5px;
+  font-size: 13px;
+}

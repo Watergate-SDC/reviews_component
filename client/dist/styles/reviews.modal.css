@@ -33,8 +33,19 @@ body {
 }
 
 .review-modal-close {
+  font-size: 20px;
   position: relative;
-  margin-left: 95%;
+  margin-left: 96%;
+  cursor: pointer;
+}
+
+.review-modal-close .fa-times-circle{
+  margin-top: 1%;
+  color: grey;
+}
+
+.review-modal-close .fa-times-circle:hover{
+  color: black;
 }
 
 .search-modal-container{

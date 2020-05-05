@@ -2,11 +2,8 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import moment from 'moment';
-import ModalSingleReview from './ModalSingleReview.jsx';
 
 export default function ModalContentEntry({ modalContent, singleReviewClickHandler, toggleClickHandler}) {
-  // const [singleReview, setSingleReview] = useState(false);
-  // console.log('modalcontententry', modalContent);
   let reviewStars = (rating) => {
     if (rating === 1) {
       return (
@@ -80,21 +77,7 @@ export default function ModalContentEntry({ modalContent, singleReviewClickHandl
       );
     }
   };
-  // let reviewShow = () => {
-  //   if (singleReview === false) {
-  //     return (
-  //       <h3>
-  //         <a onClick={toggleClickHandler}>{modalContent.reviews.title}</a>
-  //       </h3>
-  //     );
-  //   } else {
-  //     return (
-  //       <div>
-  //         <ModalSingleReview modalContent={modalContent} />
-  //       </div>
-  //     );
-  //   }
-  // };
+
   let showPartialReview = () => {
     let { review } = modalContent.reviews;
     if (review.split(' ').length > 13) {
@@ -110,22 +93,22 @@ export default function ModalContentEntry({ modalContent, singleReviewClickHandl
       return (
         <div className="modal-content-product-question">
           <div className="modal-content-question-1">
-            <div className="modal-content-question">
-              <span>Where are you from?</span>
+            <div >
+              <span className="modal-content-question">Where are you from?</span>
+            <span className="modal-content-answers">{location}</span>
             </div>
-            <div className="modal-content-answers">{location}</div>
           </div>
           <div className="modal-content-question-2">
-            <div className="modal-content-question">
-              <span>In a few words, what did you like?</span>
+            <div >
+              <span className="modal-content-question">In a few words, what did you like?</span>
+            <span className="modal-content-answers">{likes}</span>
             </div>
-            <div className="modal-content-answers">{likes}</div>
           </div>
           <div className="modal-content-question-3">
-            <div className="modal-content-question">
-              <span>In a few words, what didn't you like?</span>
+            <div>
+              <span className="modal-content-question">In a few words, what didn't you like?</span>
+            <span className="modal-content-answers">{dislikes}</span>
             </div>
-            <div className="modal-content-answers">{dislikes}</div>
           </div>
         </div>
       );
@@ -133,9 +116,6 @@ export default function ModalContentEntry({ modalContent, singleReviewClickHandl
       return <div className="modal-content-product-question-container"></div>;
     }
   };
-  // let toggleClickHandler = (e) => {
-  //   setSingleReview(!singleReview);
-  // };
 
   let singleReviewHandler = (singleContent) => {
     singleReviewClickHandler(singleContent);
@@ -163,7 +143,6 @@ export default function ModalContentEntry({ modalContent, singleReviewClickHandl
         </h3>
       </div>
       <div className="modal-content-body-container">
-        {/* {modalContent.reviews.review} */}
         {showPartialReview()}
       </div>
       <div className="modal-content-product-question-container">

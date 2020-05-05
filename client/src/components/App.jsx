@@ -3,6 +3,7 @@ import axios from 'axios';
 import '../../dist/styles/reviews.modal.search.css';
 import '../../dist/styles/reviews.modal.css';
 import '../../dist/styles/reviews-modal-content.css';
+import '../../dist/styles/reviews-modal-single-review.css'
 import MainSearchBar from './searchbar/MainSearchBar.jsx';
 import MainSearchButton from './searchbutton/MainSearchButton.jsx';
 import SearchModal from '../components/searchmodal/SearchModal.jsx';
@@ -102,7 +103,7 @@ export default class App extends Component {
             filteredReviewData={this.state.filteredReviewData}
             searchQueryChanger={this.searchQueryChanger}
             getFilteredData={this.getFilteredData}
-            singleReview={this.singleReview}
+            singleReview={this.state.singleReview}
             singleReviewClickHandler={this.singleReviewClickHandler}
           />
         </div>

@@ -9,6 +9,7 @@
   padding: 0.5em 10px 0.5em 10px;
   border: 1px solid rgb(233, 233, 233);
   border-radius: 3px 0% 0% 3px;
+  outline: none;
   /* box-shadow: none; */
 }
 
@@ -19,6 +20,13 @@
   color: rgb(100, 100, 100);
   background-color: rgb(233, 233, 233);
   border: none;
+  outline: none;
+}
+
+.modal-review-search-button:hover{
+  cursor: pointer;
+  border: solid .3px rgb(212, 212, 212);
+  outline: none;
 }
 
 @media only screen and (min-width: 633px){

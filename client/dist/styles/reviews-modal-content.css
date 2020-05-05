@@ -17,6 +17,7 @@
 
 .modal-content-container {
   margin-left: 25px;
+  margin-right: 25px;
 }
 
 .modal-content-header {
@@ -32,6 +33,10 @@
 .modal-review-created {
   margin-left: 5px;
   font-size: 13px;
+}
+
+.modal-content-body-container {
+  font-size: 15px;
 }
 
 .modal-content-product-question-container {

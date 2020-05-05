@@ -17,8 +17,6 @@ module.exports = {
       .catch((err) => res.status(400).send(err));
   },
   searchQuery: (req, res) => {
-    // let {query} = req.body
-    console.log('reqQuery', req.query)
     let obj = {
       image: req.params.id,
       queryStr: req.query.query
@@ -26,6 +24,11 @@ module.exports = {
     database
       .searchQuery(obj)
       .then((data) => {
+        let shortenData
+        if(data.length > 16){
+          shortenData = data.slice(0, 16)
+          res.status(200).send(shortenData)
+        }
         res.status(200).send(data);
       })
       .catch((err) => res.status(400).send(err));
