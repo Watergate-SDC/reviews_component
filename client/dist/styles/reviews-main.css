@@ -20,8 +20,12 @@ body {
 
 .search-line {
   width: 100%;
+  border: .5px solid rgb(211, 210, 211);
+  margin: 20px 0px 20px 0px;
 }
 
 .main-search-bar-container {
   padding: 7px 10px;
 }
+
+

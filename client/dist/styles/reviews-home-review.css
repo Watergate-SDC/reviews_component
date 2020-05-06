@@ -1,6 +1,12 @@
+.all-review-entry-container{
+  width: 100%;
+  margin: 10px 2px;
+}
+
 .review-content-header {
   display: flex;
   flex-direction: row;
+  margin-top: 15px;
 }
 
 .review-home-nickname {
@@ -13,4 +19,34 @@
   margin-left: 5px;
   font-size: 13px;
   align-self: center;
+}
+
+.review-home-title-h3 {
+  margin-top: 5px;
+}
+
+.review-home-content-body-container{
+  width: 100%;
+}
+
+.review-home-product-question-container {
+  font-size: 13px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.home-content-question{
+  font-weight: bold;
+}
+
+.home-content-answers{
+  margin-left: 5px;
+}
+
+.review-home-recommendation {
+  font-size: 12px;
+}
+
+.review-recommendation-icon {
+  font-weight: bold;
 }
