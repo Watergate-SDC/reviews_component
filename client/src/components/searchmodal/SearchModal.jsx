@@ -89,7 +89,6 @@ export default class SearchModal extends React.Component {
   }
 
   render() {
-    console.log('Filtered in SearchModal', this.props.filteredReviewData);
     return (
       <div
         className={

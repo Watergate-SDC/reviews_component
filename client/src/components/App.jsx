@@ -9,6 +9,7 @@ import '../../dist/styles/reviews-main.css';
 import '../../dist/styles/reviews-filter-review.css'
 import '../../dist/styles/reviews-histogram.css'
 import '../../dist/styles/reviews-display.css'
+import '../../dist/styles/reviews-home-review.css'
 import MainSearchBar from './searchbar/MainSearchBar.jsx';
 import MainSearchButton from './searchbutton/MainSearchButton.jsx';
 import SearchModal from '../components/searchmodal/SearchModal.jsx';
@@ -63,7 +64,7 @@ export default class App extends Component {
   }
 
   getData() {
-    axios.get(`/reviews/30`).then((data) => {
+    axios.get(`/reviews/8`).then((data) => {
       this.setState(
         {
           reviewData: data.data
@@ -72,7 +73,7 @@ export default class App extends Component {
   }
 
   getRatings(){
-    axios.get(`/reviews/rating/30`)
+    axios.get(`/reviews/rating/8`)
     .then(data => {
       this.setState({
         ratingsData: data.data

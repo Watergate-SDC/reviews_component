@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
+import AllReviewEntry from './AllReviewEntry.jsx'
 
 export default function AllReview ({reviewData}) {
-  console.log('inside ', reviewData)
   return(
     <div className="reviews-all-container">
-      <div className="reviews-title">
-
-      </div>
+      <AllReviewEntry reviewData={reviewData}/>
     </div>
   )
 }

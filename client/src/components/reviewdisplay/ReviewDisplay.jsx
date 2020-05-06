@@ -43,6 +43,7 @@ export default function ReviewDisplay({
     <div className="review-display-container">
       {activeFilterDisplay()}
       <div className="review-showing-container">{reviewComponentDisplay()}</div>
+
     </div>
   );
 }

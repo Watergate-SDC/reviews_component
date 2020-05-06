@@ -1,0 +1,16 @@
+.review-content-header {
+  display: flex;
+  flex-direction: row;
+}
+
+.review-home-nickname {
+  margin-left: 5px;
+  font-size: 13px;
+  align-self: center;
+}
+
+.review-home-created {
+  margin-left: 5px;
+  font-size: 13px;
+  align-self: center;
+}
