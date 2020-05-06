@@ -1,0 +1,189 @@
+/* 
+width of bar, take fraction 50reviews / total reviews...length of black bar
+width 210 
+*/
+
+.review-histogram-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 231px;
+}
+
+.histogram-bar-container {
+  border: 1px solid black;
+  height: 229px;
+  width: 50%;
+}
+
+
+.histogram-title {
+  width: 100%;
+  font-size: 12px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.histogram-filter-helper {
+  font-size: 14px;
+  margin: 0px 5px 5px;
+  padding: 0px 5px 5px;
+  width: 100%;
+}
+
+.histogram-rating {
+  font-size: 13px;
+  margin-right: 8px;
+}
+
+.histogram-rating .fa-star {
+  font-size: 12px;
+  padding-bottom: 1.2px;
+  margin-left: 3px;
+}
+
+.histogram-rating-score {
+  font-size: 13px;
+  padding-left: 20px;
+  align-self: center;
+}
+
+.histogram-five-star-container {
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.five-star-foreground {
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: black;
+  
+  height: 9px;
+  border-radius: 3px;
+  align-self: center;
+}
+
+.five-star-background {
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 40%;
+  height: 9px;
+  background-color: rgb(206, 206, 206);
+  border-radius: 3px;
+  align-self: center;
+}
+.histogram-four-star-container {
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.four-star-foreground {
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: black;
+  height: 9px;
+  border-radius: 3px;
+  align-self: center;
+}
+
+.four-star-background {
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 40%;
+  height: 9px;
+  background-color: rgb(206, 206, 206);
+  border-radius: 3px;
+  align-self: center;
+}
+.histogram-three-star-container {
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.three-star-foreground {
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: black;
+  height: 9px;
+  border-radius: 3px;
+  align-self: center;
+}
+
+.three-star-background {
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 40%;
+  height: 9px;
+  background-color: rgb(206, 206, 206);
+  border-radius: 3px;
+  align-self: center;
+}
+
+.histogram-two-star-container {
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.two-star-foreground {
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: black;
+  height: 9px;
+  border-radius: 3px;
+  align-self: center;
+}
+
+.two-star-background {
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 40%;
+  height: 9px;
+  background-color: rgb(206, 206, 206);
+  border-radius: 3px;
+  align-self: center;
+}
+.histogram-one-star-container {
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.one-star-foreground {
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: black;
+  height: 9px;
+  border-radius: 3px;
+  align-self: center;
+}
+
+.one-star-background {
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 40%;
+  height: 9px;
+  background-color: rgb(206, 206, 206);
+  border-radius: 3px;
+  align-self: center;
+}
+
+
+.review-overall-rating-container {
+  border: 1px solid black;
+  width: 50%;
+  height: 231px;
+}

@@ -3,16 +3,24 @@ import axios from 'axios';
 import '../../dist/styles/reviews.modal.search.css';
 import '../../dist/styles/reviews.modal.css';
 import '../../dist/styles/reviews-modal-content.css';
-import '../../dist/styles/reviews-modal-single-review.css'
+import '../../dist/styles/reviews-modal-single-review.css';
+import '../../dist/styles/reviews-write-review.css';
+import '../../dist/styles/reviews-main.css';
+import '../../dist/styles/reviews-filter-review.css'
+import '../../dist/styles/reviews-histogram.css'
 import MainSearchBar from './searchbar/MainSearchBar.jsx';
 import MainSearchButton from './searchbutton/MainSearchButton.jsx';
 import SearchModal from '../components/searchmodal/SearchModal.jsx';
+import WriteReview from './writereview/WriteReview.jsx';
+import FilterOption from './filteroption/FilterOption.jsx'
+import ReviewHistogram from './reviewhistogram/ReviewHistogram';
 
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       reviewData: [],
+      ratingsData: [],
       filteredReviewData: [],
       modalToggle: false,
       reviewSearch: '',
@@ -20,6 +28,7 @@ export default class App extends Component {
       singleReviewToggle: false
     };
     this.getData = this.getData.bind(this);
+    this.getRatings = this.getRatings.bind(this)
     this.modalHandler = this.modalHandler.bind(this);
     this.searchQueryChanger = this.searchQueryChanger.bind(this);
     this.getFilteredData = this.getFilteredData.bind(this);
@@ -29,7 +38,7 @@ export default class App extends Component {
 
   componentDidMount() {
     this.getData();
-    // this.getFilteredData()
+    this.getRatings()
   }
 
   getFilteredData() {
@@ -51,10 +60,17 @@ export default class App extends Component {
       this.setState(
         {
           reviewData: data.data
-        },
-        () => console.log('All data retrieved', this.state)
-      );
+        });
     });
+  }
+
+  getRatings(){
+    axios.get(`/reviews/rating/1`)
+    .then(data => {
+      this.setState({
+        ratingsData: data.data
+      })
+    })
   }
 
   modalHandler() {
@@ -85,10 +101,12 @@ export default class App extends Component {
     });
   }
 
+  
+
   render() {
-    console.log('APPP State', this.state)
+    console.log('APPP State', this.state);
     return (
-      <div id="main-container">
+      <div className="review-main-container">
         <hr className="search-line"></hr>
         <div className="main-search-bar-container">
           <MainSearchBar searchQueryChanger={this.searchQueryChanger} />
@@ -108,6 +126,15 @@ export default class App extends Component {
           />
         </div>
         <hr className="search-line"></hr>
+        <div className="main-write-review-container">
+          <WriteReview />
+        </div>
+        <div className="reviews-histogram-container">
+          <ReviewHistogram ratingsData={this.state.ratingsData}/>
+        </div>
+        <div className="main-filter-review-container">
+          <FilterOption />
+        </div>
       </div>
     );
   }

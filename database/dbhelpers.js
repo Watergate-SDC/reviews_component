@@ -5,6 +5,7 @@ module.exports = {
   getOne: (image) => database.find({ image: { $regex: `image${image}.png` } }),
   searchQuery: (obj) => database.aggregate([{"$match": {"image": {$regex: `image${obj.image}.png`}}},
     {"$unwind": "$reviews"},{$match: {"reviews.review": {$regex: `${obj.queryStr}`, $options: "i"}}}
-  ])
+  ]),
+  getRatings: (id) => database.find({"productID": id})
 
 };

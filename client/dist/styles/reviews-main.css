@@ -5,16 +5,23 @@ body {
   min-height: 100%;
   padding: 0;
   margin: 0;
+  background-color: #fafafa;
 }
 
 body {
   font-family: 'open Sans', sans-serif;
 }
 
-#main-container {
+.review-main-container {
   max-width: 100%;
+  margin: 64px 0 192px;
+  padding: 0 20px;
 }
 
 .search-line {
-  width: 80%;
+  width: 100%;
+}
+
+.main-search-bar-container {
+  padding: 7px 10px;
 }

@@ -32,5 +32,16 @@ module.exports = {
         res.status(200).send(data);
       })
       .catch((err) => res.status(400).send(err));
+  },
+  getRatings: (req, res) => {
+    let id = req.params.id
+    database.getRatings(id)
+    .then((data) => {
+      let reviewRating = data.map((review) => {
+        return review.reviews
+      })
+      res.status(200).send(reviewRating)
+    })
+    .catch(err => res.status(400).send('error getting ratings'))
   }
 };
