@@ -10,7 +10,7 @@ export default class ReviewHistogram extends Component {
     };
     this.getCount = this.getCount.bind(this);
     this.allReviewCount = this.allReviewCount.bind(this);
-    this.ratingFilterHandler = this.ratingFilterHandler.bind(this)
+    // this.ratingFilterHandler = this.ratingFilterHandler.bind(this)
   }
 
   getCount() {
@@ -56,33 +56,30 @@ export default class ReviewHistogram extends Component {
     return allCount;
   }
 
-  ratingFilterHandler(e) {
-    e.preventDefault()
-    let reviewFilteredData = []
-    let { ratingsData } = this.props
-    for(let i = 0; i < ratingsData.length; i++){
-      for(let j = 0; j < ratingsData[i].length; j++){
-        if(ratingsData[i][j].rating === e.target.value){
-          reviewFilteredData.push(ratingsData[i][j])
-        }
-      }
-    }
-    this.setState({
-      filteredRatingData: reviewFilteredData
-    }, () => console.log('statttee', this.state))
-  }
+  // ratingFilterHandler(num) {
+  //   let reviewFilteredData = []
+  //   let { ratingsData } = this.props
+  //   for(let i = 0; i < ratingsData.length; i++){
+  //     for(let j = 0; j < ratingsData[i].length; j++){
+  //       if(ratingsData[i][j].rating === num){
+  //         reviewFilteredData.push(ratingsData[i][j])
+  //       }
+  //     }
+  //   }
+  //   this.setState({
+  //     filteredRatingData: reviewFilteredData
+  //   }, () => console.log('statttee', this.state))
+  // }
 
   render() {
     let ratingCount = this.getCount();
     let totalReviews = this.allReviewCount();
-    console.log('this.propss', this.props.ratingsData);
-    // console.log('this.state', this.state)
     return (
       <div className="review-histogram-container">
         <div className="histogram-bar-container">
         <div className="histogram-title">Rating Snapshot</div>
         <div className="histogram-filter-helper">Select a row below to filter reviews.</div>
-          <div onClick={this.ratingFilterHandler} className="histogram-five-star-container" value="5">
+          <div onClick={() => {this.props.ratingFilterHandler(5); this.props.reviewDisplayToggleHandlerTrue()}} className="histogram-five-star-container">
             <div className="histogram-rating">
               5<FontAwesomeIcon icon={faStar} />
             </div>
@@ -100,7 +97,7 @@ export default class ReviewHistogram extends Component {
               {ratingCount.ratingFive}
             </div>
           </div>
-          <div onClick={this.ratingFilterHandler} className="histogram-four-star-container" value="4">
+          <div onClick={() => {this.props.ratingFilterHandler(4); this.props.reviewDisplayToggleHandlerTrue()}} className="histogram-four-star-container">
             <div className="histogram-rating">
               4<FontAwesomeIcon icon={faStar} />
             </div>
@@ -118,7 +115,7 @@ export default class ReviewHistogram extends Component {
               {ratingCount.ratingFour}
             </div>
           </div>
-          <div onClick={this.ratingFilterHandler} className="histogram-three-star-container" value="3">
+          <div onClick={() => {this.props.ratingFilterHandler(3); this.props.reviewDisplayToggleHandlerTrue()}} className="histogram-three-star-container" >
             <div className="histogram-rating">
               3<FontAwesomeIcon icon={faStar} />
             </div>
@@ -136,7 +133,7 @@ export default class ReviewHistogram extends Component {
               {ratingCount.ratingThree}
             </div>
           </div>
-          <div onClick={this.ratingFilterHandler} className="histogram-two-star-container" value="2">
+          <div onClick={() => {this.props.ratingFilterHandler(2); this.props.reviewDisplayToggleHandlerTrue()}} className="histogram-two-star-container" >
             <div className="histogram-rating">
               2<FontAwesomeIcon icon={faStar} />
             </div>
@@ -154,7 +151,7 @@ export default class ReviewHistogram extends Component {
               {ratingCount.ratingTwo}
             </div>
           </div>
-          <div onClick={this.ratingFilterHandler} className="histogram-one-star-container" value="1">
+          <div onClick={() => {this.props.ratingFilterHandler(1); this.props.reviewDisplayToggleHandlerTrue()}} className="histogram-one-star-container" >
             <div className="histogram-rating">
               1<FontAwesomeIcon icon={faStar} />
             </div>

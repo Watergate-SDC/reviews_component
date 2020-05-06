@@ -8,12 +8,14 @@ import '../../dist/styles/reviews-write-review.css';
 import '../../dist/styles/reviews-main.css';
 import '../../dist/styles/reviews-filter-review.css'
 import '../../dist/styles/reviews-histogram.css'
+import '../../dist/styles/reviews-display.css'
 import MainSearchBar from './searchbar/MainSearchBar.jsx';
 import MainSearchButton from './searchbutton/MainSearchButton.jsx';
 import SearchModal from '../components/searchmodal/SearchModal.jsx';
 import WriteReview from './writereview/WriteReview.jsx';
 import FilterOption from './filteroption/FilterOption.jsx'
-import ReviewHistogram from './reviewhistogram/ReviewHistogram';
+import ReviewHistogram from './reviewhistogram/ReviewHistogram.jsx';
+import ReviewDisplay from './reviewdisplay/ReviewDisplay.jsx'
 
 export default class App extends Component {
   constructor(props) {
@@ -25,7 +27,9 @@ export default class App extends Component {
       modalToggle: false,
       reviewSearch: '',
       singleReview: [],
-      singleReviewToggle: false
+      singleReviewToggle: false,
+      filteredRatingData: [],
+      reviewDisplayToggle: false
     };
     this.getData = this.getData.bind(this);
     this.getRatings = this.getRatings.bind(this)
@@ -34,6 +38,9 @@ export default class App extends Component {
     this.getFilteredData = this.getFilteredData.bind(this);
     this.onSearchClick = this.onSearchClick.bind(this);
     this.singleReviewClickHandler = this.singleReviewClickHandler.bind(this);
+    this.ratingFilterHandler = this.ratingFilterHandler.bind(this)
+    this.reviewDisplayToggleHandlerTrue = this.reviewDisplayToggleHandlerTrue.bind(this)
+    this.reviewDisplayToggleHandlerFalse = this.reviewDisplayToggleHandlerFalse.bind(this)
   }
 
   componentDidMount() {
@@ -56,7 +63,7 @@ export default class App extends Component {
   }
 
   getData() {
-    axios.get(`/reviews/1`).then((data) => {
+    axios.get(`/reviews/30`).then((data) => {
       this.setState(
         {
           reviewData: data.data
@@ -65,7 +72,7 @@ export default class App extends Component {
   }
 
   getRatings(){
-    axios.get(`/reviews/rating/1`)
+    axios.get(`/reviews/rating/30`)
     .then(data => {
       this.setState({
         ratingsData: data.data
@@ -101,10 +108,34 @@ export default class App extends Component {
     });
   }
 
+  ratingFilterHandler(num) {
+    let reviewFilteredData = []
+    let { ratingsData } = this.state
+    for(let i = 0; i < ratingsData.length; i++){
+      for(let j = 0; j < ratingsData[i].length; j++){
+        if(ratingsData[i][j].rating === num){
+          reviewFilteredData.push(ratingsData[i][j])
+        }
+      }
+    }
+    this.setState({
+      filteredRatingData: reviewFilteredData
+    }, () => console.log('statttee', this.state))
+  }
+
+  reviewDisplayToggleHandlerTrue(){
+    this.setState({
+      reviewDisplayToggle: true
+    }, ()=> console.log('TOGGLE CHANGE', this.state.reviewDisplayToggle))
+  }
+  reviewDisplayToggleHandlerFalse(){
+    this.setState({
+      reviewDisplayToggle: false
+    })
+  }
   
 
   render() {
-    console.log('APPP State', this.state);
     return (
       <div className="review-main-container">
         <hr className="search-line"></hr>
@@ -130,10 +161,13 @@ export default class App extends Component {
           <WriteReview />
         </div>
         <div className="reviews-histogram-container">
-          <ReviewHistogram ratingsData={this.state.ratingsData}/>
+          <ReviewHistogram ratingsData={this.state.ratingsData} ratingFilterHandler={this.ratingFilterHandler} reviewDisplayToggleHandlerTrue={this.reviewDisplayToggleHandlerTrue}/>
         </div>
         <div className="main-filter-review-container">
           <FilterOption />
+        </div>
+        <div className="review-display-container">
+          <ReviewDisplay filteredRatingData={this.state.filteredRatingData} reviewData={this.state.reviewData} reviewDisplayToggle={this.state.reviewDisplayToggle} reviewDisplayToggleHandlerFalse={this.reviewDisplayToggleHandlerFalse}/>
         </div>
       </div>
     );

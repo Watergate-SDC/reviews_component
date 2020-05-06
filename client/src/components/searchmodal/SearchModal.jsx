@@ -10,7 +10,8 @@ export default class SearchModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      singleViewToggle: false
+      singleViewToggle: false,
+      singleViewAnimation: false
     };
     this.singleViewToggleHandler = this.singleViewToggleHandler.bind(this);
     this.reviewShow = this.reviewShow.bind(this);
@@ -88,7 +89,7 @@ export default class SearchModal extends React.Component {
   }
 
   render() {
-    console.log('singleReview in SearchModal', this.props.singleReview);
+    console.log('Filtered in SearchModal', this.props.filteredReviewData);
     return (
       <div
         className={

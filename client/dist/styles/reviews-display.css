@@ -1,0 +1,19 @@
+/* .active-reviews-clear-button {
+  display: flex;
+  align-items: center;
+} */
+.reviews-clear-button {
+  background-color: rgb(255, 255, 255);
+  border: none;
+  display: flex;
+  align-items: center;
+}
+
+.reviews-filter-clear {
+  font-size: 15px;
+  background-color: rgb(255, 255, 255);
+}
+
+.reviews-filter-clear .fa-times-circle {
+  font-size: 12px;
+}

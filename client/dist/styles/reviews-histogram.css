@@ -16,7 +16,6 @@ width 210
   width: 50%;
 }
 
-
 .histogram-title {
   width: 100%;
   font-size: 12px;
@@ -59,10 +58,11 @@ width 210
   top: 0;
   bottom: 0;
   background-color: black;
-  
   height: 9px;
   border-radius: 3px;
   align-self: center;
+  cursor: pointer;
+
 }
 
 .five-star-background {
@@ -74,6 +74,8 @@ width 210
   background-color: rgb(206, 206, 206);
   border-radius: 3px;
   align-self: center;
+  cursor: pointer;
+
 }
 .histogram-four-star-container {
   margin: 10px;
@@ -89,6 +91,8 @@ width 210
   height: 9px;
   border-radius: 3px;
   align-self: center;
+  cursor: pointer;
+
 }
 
 .four-star-background {
@@ -100,6 +104,8 @@ width 210
   background-color: rgb(206, 206, 206);
   border-radius: 3px;
   align-self: center;
+  cursor: pointer;
+
 }
 .histogram-three-star-container {
   margin: 10px;
@@ -115,6 +121,8 @@ width 210
   height: 9px;
   border-radius: 3px;
   align-self: center;
+  cursor: pointer;
+
 }
 
 .three-star-background {
@@ -126,6 +134,8 @@ width 210
   background-color: rgb(206, 206, 206);
   border-radius: 3px;
   align-self: center;
+  cursor: pointer;
+
 }
 
 .histogram-two-star-container {
@@ -142,6 +152,8 @@ width 210
   height: 9px;
   border-radius: 3px;
   align-self: center;
+  cursor: pointer;
+
 }
 
 .two-star-background {
@@ -153,6 +165,8 @@ width 210
   background-color: rgb(206, 206, 206);
   border-radius: 3px;
   align-self: center;
+  cursor: pointer;
+
 }
 .histogram-one-star-container {
   margin: 10px;
@@ -168,6 +182,8 @@ width 210
   height: 9px;
   border-radius: 3px;
   align-self: center;
+  cursor: pointer;
+
 }
 
 .one-star-background {
@@ -179,11 +195,13 @@ width 210
   background-color: rgb(206, 206, 206);
   border-radius: 3px;
   align-self: center;
+  cursor: pointer;
 }
-
 
 .review-overall-rating-container {
   border: 1px solid black;
   width: 50%;
   height: 231px;
 }
+
+
