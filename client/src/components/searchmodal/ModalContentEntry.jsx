@@ -78,6 +78,82 @@ export default function ModalContentEntry({ modalContent, singleReviewClickHandl
     }
   };
 
+  let starCount = () => {
+    let { rating } = modalContent.reviews;
+    
+    if (rating === 5) {
+      return (
+        <span className="review-home-star-container">
+          <FontAwesomeIcon icon={faStar} />
+          <FontAwesomeIcon icon={faStar} />
+          <FontAwesomeIcon icon={faStar} />
+          <FontAwesomeIcon icon={faStar} />
+          <FontAwesomeIcon icon={faStar} />
+        </span>
+      );
+    }
+    if (rating === 4) {
+      return (
+        <span className="review-home-star-container">
+          <span className="review-home-star-container2">
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStar} />
+          </span>
+          <span className="review-home-stars">
+            <FontAwesomeIcon icon={faStar} />
+          </span>
+        </span>
+      );
+    }
+    if (rating === 3) {
+      return (
+        <span className="review-home-star-container">
+          <span className="review-home-star-container2">
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStar} />
+          </span>
+          <span className="review-home-stars">
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStar} />
+          </span>
+        </span>
+      );
+    }
+    if (rating === 2) {
+      return (
+        <span className="review-home-star-container">
+          <span className="review-home-star-container2">
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStar} />
+          </span>
+          <span className="review-home-stars">
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStar} />
+          </span>
+        </span>
+      );
+    }
+    if (rating === 1) {
+      return (
+        <span className="review-home-star-container">
+          <span className="review-home-star-container2">
+            <FontAwesomeIcon icon={faStar} />
+          </span>
+          <span className="review-home-stars">
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStar} />
+          </span>
+        </span>
+      );
+    }
+  };
+
   let showPartialReview = () => {
     let { review } = modalContent.reviews;
     if (review.split(' ').length > 13) {
@@ -127,7 +203,7 @@ export default function ModalContentEntry({ modalContent, singleReviewClickHandl
     <div className="modal-content">
       <div className="modal-content-header">
         <div className="modal-review-stars">
-          {reviewStars(modalContent.reviews.rating)}
+          {starCount()}
         </div>
         <div className="modal-review-nickname">
           <span>{modalContent.reviews.nickname}</span>

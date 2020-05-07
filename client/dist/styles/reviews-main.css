@@ -23,14 +23,50 @@ body {
   height: 80%;
 }
 
-.search-line {
+.search-line-review {
   width: 100%;
   border: .5px solid rgb(211, 210, 211);
   margin: 20px 0px 20px 0px;
 }
 
-.main-search-bar-container {
-  padding: 7px 10px;
+.search-line{
+  width: 100%;
+  border: .5px solid rgb(211, 210, 211);
 }
 
+.main-search-bar-container {
+  padding: 7px 10px;
+  
+}
 
+.main-review-search-input {
+  height: 16px;
+  width: 20em;
+  padding: 0.5em 10px 0.5em 10px;
+  border: .3px solid rgb(233, 233, 233);
+  border-radius: 3px 0% 0% 3px;
+  outline: none;
+  font-size: 14px;
+  border: 1px solid rgb(179, 178, 179);
+  /* box-shadow: none; */
+}
+
+.main-review-search-input:focus{
+  border: 1px solid black;
+}
+
+.main-review-search-button{
+  height: 33px;
+  width: 80px;
+  font-size: 20px;
+  color: rgb(100, 100, 100);
+  background-color: rgb(233, 233, 233);
+  border: none;
+  outline: none;
+  border-radius: 1px;
+  cursor: pointer;
+}
+
+.main-review-search-button:hover{
+  border: 1.5px solid rgb(215, 215, 215);
+}

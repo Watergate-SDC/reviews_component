@@ -9,6 +9,7 @@
 
 .modal-review-stars {
   font-size: 11px;
+  display: flex
 }
 
 .modal-content-title-container, h3 {

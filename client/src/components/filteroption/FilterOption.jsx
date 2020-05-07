@@ -6,14 +6,18 @@ export default class FilterOption extends Component {
     this.state = {}
   }
 
+
+
   render() {
+    console.log('insideFilterOption', this.props.reviewData)
     return(
       <div className="reviews-filter-container">
       <div className="reviews-filter-count">
         <span>?-? of ? Reviews</span>
       </div>
-      <div>
-        <select defaultValue="mostRecent">
+      <div className="filter-review-select">
+        <span> Sort by: </span>
+        <select defaultValue="mostRecent" >
           <option value="mostRecent" > Most Recent </option>
           <option value="featured"> Featured </option>
           <option value="negative"> Lowest to Highest Rating </option>

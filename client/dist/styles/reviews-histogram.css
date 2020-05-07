@@ -11,7 +11,6 @@ width 210
 }
 
 .histogram-bar-container {
-  border: 1px solid black;
   height: 229px;
   width: 50%;
 }
@@ -199,7 +198,6 @@ width 210
 }
 
 .review-overall-rating-container {
-  border: 1px solid black;
   width: 50%;
   height: 231px;
 }

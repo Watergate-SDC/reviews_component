@@ -165,7 +165,7 @@ export default class App extends Component {
           <ReviewHistogram ratingsData={this.state.ratingsData} ratingFilterHandler={this.ratingFilterHandler} reviewDisplayToggleHandlerTrue={this.reviewDisplayToggleHandlerTrue}/>
         </div>
         <div className="main-filter-review-container">
-          <FilterOption />
+          <FilterOption reviewData={this.state.reviewData}/>
         </div>
         <div className="review-display-container">
           <ReviewDisplay filteredRatingData={this.state.filteredRatingData} reviewData={this.state.reviewData} reviewDisplayToggle={this.state.reviewDisplayToggle} reviewDisplayToggleHandlerFalse={this.reviewDisplayToggleHandlerFalse}/>

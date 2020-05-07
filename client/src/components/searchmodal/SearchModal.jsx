@@ -52,7 +52,6 @@ export default class SearchModal extends React.Component {
 
   searchBarDisplayHandler() {
     let { singleViewToggle } = this.state;
-    let showingData = this.props.filteredReviewData;
     let startingNum;
     let endingNum = this.props.filteredReviewData.length - 1;
 
