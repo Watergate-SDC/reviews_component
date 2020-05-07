@@ -2,7 +2,7 @@
 
 html,
 body {
-  min-height: 100%;
+  height: 100%;
   padding: 0;
   margin: 0;
   background-color: #fafafa;
@@ -16,6 +16,11 @@ body {
   max-width: 100%;
   margin: 64px 0 192px;
   padding: 0 20px;
+  height: 100%;
+}
+
+.main-search-modal-container{
+  height: 80%;
 }
 
 .search-line {

@@ -7,9 +7,10 @@ import {
   faStar
 } from '@fortawesome/free-solid-svg-icons';
 
-export default function Review({ post }) {
+export default function FilteredReviewEntries({ review }) {
+
   let homeQuestions = () => {
-    let { location, dislikes, likes } = post;
+    let { location, dislikes, likes } = review;
     if (location && dislikes && likes) {
       return (
         <div className="home-content-product-question">
@@ -43,7 +44,7 @@ export default function Review({ post }) {
   };
 
   let homeRecommendation = () => {
-    let { recommendation } = post;
+    let { recommendation } = review;
     if (recommendation === false) {
       return (
         <div className="review-home-recommendation-message">
@@ -68,7 +69,7 @@ export default function Review({ post }) {
   };
 
   let starCount = () => {
-    let { rating } = post;
+    let { rating } = review;
     if (rating === 5) {
       return (
         <span className="review-home-star-container">
@@ -142,31 +143,34 @@ export default function Review({ post }) {
     }
   };
 
-  return (
+
+  console.log('insideThisShit', review)
+  return(
     <div className="all-review-entry-container">
-      <div className="review-content-header">
-        <div className="review-stars">{starCount()}</div>
-        <div className="review-home-nickname">
-          <span>{post.nickname}</span>
-        </div>
-        <div className="review-home-created">
-          <span>· </span>
-          <span>{moment(post.created_at).fromNow()}</span>
-        </div>
+    <div className="review-content-header">
+      <div className="review-stars">{starCount()}</div>
+      <div className="review-home-nickname">
+        <span>{review.nickname}</span>
       </div>
-      <div className="reivew-home-title-container">
-        <div className="reivew-home-title">
-          <h3 className="review-home-title-h3">{post.title}</h3>
-        </div>
+      <div className="review-home-created">
+        <span>· </span>
+        <span>{moment(review.created_at).fromNow()}</span>
       </div>
-      <div className="review-home-content-body-container">
-        <div className="review-home-content-body">{post.review}</div>
-      </div>
-      <div className="review-home-product-question-container">
-        {homeQuestions()}
-      </div>
-      <div className="review-home-recommendation">{homeRecommendation()}</div>
-      <hr className="search-line"></hr>
     </div>
-  );
+    <div className="reivew-home-title-container">
+      <div className="reivew-home-title">
+        <h3 className="review-home-title-h3">{review.title}</h3>
+      </div>
+    </div>
+    <div className="review-home-content-body-container">
+      <div className="review-home-content-body">{review.review}</div>
+    </div>
+    <div className="review-home-product-question-container">
+      {homeQuestions()}
+    </div>
+    <div className="review-home-recommendation">{homeRecommendation()}</div>
+    <hr className="search-line"></hr>
+  </div>
+
+  )
 }

@@ -3,16 +3,25 @@
   margin: 10px 2px;
 }
 
+.review-stars {
+  display: flex;
+}
+
+.review-home-star-container {
+  display: flex;
+}
+
 .review-content-header {
   display: flex;
   flex-direction: row;
   margin-top: 15px;
 }
 
+
 .review-home-nickname {
   margin-left: 5px;
   font-size: 13px;
-  align-self: center;
+  align-items: center;
 }
 
 .review-home-created {
@@ -49,4 +58,24 @@
 
 .review-recommendation-icon {
   font-weight: bold;
+}
+
+.review-home-star-container .fa-star {
+  font-size: 12px;
+
+}
+
+.review-home-stars .fa-star{
+  color: rgb(197, 197, 197);
+}
+
+.review-home-star-container2 {
+  display: flex;
+}
+.review-home-stars {
+  display: flex;
+}
+
+.fa-star {
+  align-self: center;
 }
