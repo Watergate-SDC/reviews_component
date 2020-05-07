@@ -9,11 +9,12 @@ export default function ReviewDisplay({
   filteredRatingData,
   reviewData,
   reviewDisplayToggle,
-  reviewDisplayToggleHandlerFalse
+  reviewDisplayToggleHandlerFalse,
+  reviewLimit
 }) {
   let reviewComponentDisplay = () => {
     if (reviewDisplayToggle === false) {
-      return <AllReview reviewData={reviewData} />;
+      return <AllReview reviewData={reviewData} reviewLimit={reviewLimit}/>;
     } else {
       return <StarFilteredReview filteredRatingData={filteredRatingData} />;
     }

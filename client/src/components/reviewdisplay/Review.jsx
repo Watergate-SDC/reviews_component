@@ -166,7 +166,7 @@ export default function Review({ post }) {
         {homeQuestions()}
       </div>
       <div className="review-home-recommendation">{homeRecommendation()}</div>
-      <hr className="search-line"></hr>
+      <hr className="search-line-review"></hr>
     </div>
   );
 }

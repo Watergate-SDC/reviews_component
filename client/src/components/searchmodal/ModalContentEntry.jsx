@@ -4,79 +4,79 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import moment from 'moment';
 
 export default function ModalContentEntry({ modalContent, singleReviewClickHandler, toggleClickHandler}) {
-  let reviewStars = (rating) => {
-    if (rating === 1) {
-      return (
-        <div>
-          <span>
-            <FontAwesomeIcon icon={faStar} />
-          </span>
-        </div>
-      );
-    } else if (rating === 2) {
-      return (
-        <div>
-          <span>
-            <FontAwesomeIcon icon={faStar} />
-          </span>
-          <span>
-            <FontAwesomeIcon icon={faStar} />
-          </span>
-        </div>
-      );
-    } else if (rating === 3) {
-      return (
-        <div>
-          <span>
-            <FontAwesomeIcon icon={faStar} />
-          </span>
-          <span>
-            <FontAwesomeIcon icon={faStar} />
-          </span>
-          <span>
-            <FontAwesomeIcon icon={faStar} />
-          </span>
-        </div>
-      );
-    } else if (rating === 4) {
-      return (
-        <div>
-          <span>
-            <FontAwesomeIcon icon={faStar} />
-          </span>
-          <span>
-            <FontAwesomeIcon icon={faStar} />
-          </span>
-          <span>
-            <FontAwesomeIcon icon={faStar} />
-          </span>
-          <span>
-            <FontAwesomeIcon icon={faStar} />
-          </span>
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <span>
-            <FontAwesomeIcon icon={faStar} />
-          </span>
-          <span>
-            <FontAwesomeIcon icon={faStar} />
-          </span>
-          <span>
-            <FontAwesomeIcon icon={faStar} />
-          </span>
-          <span>
-            <FontAwesomeIcon icon={faStar} />
-          </span>
-          <span>
-            <FontAwesomeIcon icon={faStar} />
-          </span>
-        </div>
-      );
-    }
-  };
+  // let reviewStars = (rating) => {
+  //   if (rating === 1) {
+  //     return (
+  //       <div>
+  //         <span>
+  //           <FontAwesomeIcon icon={faStar} />
+  //         </span>
+  //       </div>
+  //     );
+  //   } else if (rating === 2) {
+  //     return (
+  //       <div>
+  //         <span>
+  //           <FontAwesomeIcon icon={faStar} />
+  //         </span>
+  //         <span>
+  //           <FontAwesomeIcon icon={faStar} />
+  //         </span>
+  //       </div>
+  //     );
+  //   } else if (rating === 3) {
+  //     return (
+  //       <div>
+  //         <span>
+  //           <FontAwesomeIcon icon={faStar} />
+  //         </span>
+  //         <span>
+  //           <FontAwesomeIcon icon={faStar} />
+  //         </span>
+  //         <span>
+  //           <FontAwesomeIcon icon={faStar} />
+  //         </span>
+  //       </div>
+  //     );
+  //   } else if (rating === 4) {
+  //     return (
+  //       <div>
+  //         <span>
+  //           <FontAwesomeIcon icon={faStar} />
+  //         </span>
+  //         <span>
+  //           <FontAwesomeIcon icon={faStar} />
+  //         </span>
+  //         <span>
+  //           <FontAwesomeIcon icon={faStar} />
+  //         </span>
+  //         <span>
+  //           <FontAwesomeIcon icon={faStar} />
+  //         </span>
+  //       </div>
+  //     );
+  //   } else {
+  //     return (
+  //       <div>
+  //         <span>
+  //           <FontAwesomeIcon icon={faStar} />
+  //         </span>
+  //         <span>
+  //           <FontAwesomeIcon icon={faStar} />
+  //         </span>
+  //         <span>
+  //           <FontAwesomeIcon icon={faStar} />
+  //         </span>
+  //         <span>
+  //           <FontAwesomeIcon icon={faStar} />
+  //         </span>
+  //         <span>
+  //           <FontAwesomeIcon icon={faStar} />
+  //         </span>
+  //       </div>
+  //     );
+  //   }
+  // };
 
   let starCount = () => {
     let { rating } = modalContent.reviews;

@@ -10,6 +10,12 @@ width 210
   height: 231px;
 }
 
+/* @media only screen and (max-width: 560px){
+  .review-histogram-container{
+    flex-direction: column;
+  }
+} */
+
 .histogram-bar-container {
   height: 229px;
   width: 50%;
@@ -61,7 +67,6 @@ width 210
   border-radius: 3px;
   align-self: center;
   cursor: pointer;
-
 }
 
 .five-star-background {
@@ -74,7 +79,6 @@ width 210
   border-radius: 3px;
   align-self: center;
   cursor: pointer;
-
 }
 .histogram-four-star-container {
   margin: 10px;
@@ -91,7 +95,6 @@ width 210
   border-radius: 3px;
   align-self: center;
   cursor: pointer;
-
 }
 
 .four-star-background {
@@ -104,7 +107,6 @@ width 210
   border-radius: 3px;
   align-self: center;
   cursor: pointer;
-
 }
 .histogram-three-star-container {
   margin: 10px;
@@ -121,7 +123,6 @@ width 210
   border-radius: 3px;
   align-self: center;
   cursor: pointer;
-
 }
 
 .three-star-background {
@@ -134,7 +135,6 @@ width 210
   border-radius: 3px;
   align-self: center;
   cursor: pointer;
-
 }
 
 .histogram-two-star-container {
@@ -152,7 +152,6 @@ width 210
   border-radius: 3px;
   align-self: center;
   cursor: pointer;
-
 }
 
 .two-star-background {
@@ -165,7 +164,6 @@ width 210
   border-radius: 3px;
   align-self: center;
   cursor: pointer;
-
 }
 .histogram-one-star-container {
   margin: 10px;
@@ -182,7 +180,6 @@ width 210
   border-radius: 3px;
   align-self: center;
   cursor: pointer;
-
 }
 
 .one-star-background {
@@ -200,6 +197,88 @@ width 210
 .review-overall-rating-container {
   width: 50%;
   height: 231px;
+  /* display: flex; */
 }
 
+.review-summary-header {
+  font-size: 10px;
+}
+
+.overall-star-rating-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  z-index: 1;
+}
+
+.star-rating-overall-text {
+  font-size: 13px;
+  margin-right: 10px;
+}
+
+.review-average-stars{
+  /* position: relative; */
+  position: relative;
+  vertical-align: middle;
+  display: inline-block;
+  color: #b1b1b1;
+  overflow: hidden;
+  margin-right: 40px;
+  z-index: 1;
+}
+
+.review-average-stars-foreground {
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  color: black;
+  z-index: 1;
+}
+
+.review-average-stars-background:before,.review-average-stars-foreground:before {
+  content: "\2605\2605\2605\2605\2605";
+  font-size: 13px;
+}
+.review-average-count-num-container {
+  margin-left: 5px;
+}
+
+.review-average-count-num {
+  font-size: 13px;
+}
+
+/* 
+setting with forground inside background
+.review-average-stars-background {
+  font-size: 48px;
+  color: rgb(197, 197, 197);
+  overflow: hidden;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  position: relative;
+}
+.review-average-stars-background::before {
+  content: '★★★★★';
+  font-size: 12px;
+}
+
+.review-average-stars-foreground {
+  font-size: 48px;
+  color: rgb(0, 0, 0);
+  overflow: hidden;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.review-average-stars-foreground::before {
+  content: '★★★★★';
+  font-size: 12px;
+}
+*/
 

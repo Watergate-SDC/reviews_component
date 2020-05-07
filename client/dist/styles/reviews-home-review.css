@@ -38,6 +38,10 @@
   width: 100%;
 }
 
+.review-home-content-body {
+  font-size: 13px;
+}
+
 .review-home-product-question-container {
   font-size: 13px;
   margin-top: 10px;

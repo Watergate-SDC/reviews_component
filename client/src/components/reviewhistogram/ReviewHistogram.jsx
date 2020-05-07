@@ -71,15 +71,62 @@ export default class ReviewHistogram extends Component {
   //   }, () => console.log('statttee', this.state))
   // }
 
+  averageCountHandler() {
+    if (this.props.ratingsData === []) {
+      return 0;
+    } else {
+      return (
+        (ratingCount.ratingFive * 5 +
+          ratingCount.ratingFour * 4 +
+          ratingCount.ratingThree * 3 +
+          ratingCount.ratingTwo * 2 +
+          ratingCount.ratingOne * 1) /
+        (ratingCount.ratingFive +
+          ratingCount.ratingFour +
+          ratingCount.ratingThree +
+          ratingCount.ratingTwo +
+          ratingCount.ratingOne)
+      );
+    }
+  }
+
   render() {
     let ratingCount = this.getCount();
     let totalReviews = this.allReviewCount();
+    let averageReviewCount =
+      ratingCount.ratingFive * 5 +
+      ratingCount.ratingFour * 4 +
+      ratingCount.ratingThree * 3 +
+      ratingCount.ratingTwo * 2 +
+      ((ratingCount.ratingOne * 1) / totalReviews) * 100;
+    let averageCount =
+      this.props.ratingsData === []
+        ? 0
+        : (ratingCount.ratingFive * 5 +
+            ratingCount.ratingFour * 4 +
+            ratingCount.ratingThree * 3 +
+            ratingCount.ratingTwo * 2 +
+            ratingCount.ratingOne * 1) /
+          (ratingCount.ratingFive +
+            ratingCount.ratingFour +
+            ratingCount.ratingThree +
+            ratingCount.ratingTwo +
+            ratingCount.ratingOne);
+    console.log('xcvxczv', averageReviewCount, '--->', averageCount);
     return (
       <div className="review-histogram-container">
         <div className="histogram-bar-container">
-        <div className="histogram-title">Rating Snapshot</div>
-        <div className="histogram-filter-helper">Select a row below to filter reviews.</div>
-          <div onClick={() => {this.props.ratingFilterHandler(5); this.props.reviewDisplayToggleHandlerTrue()}} className="histogram-five-star-container">
+          <div className="histogram-title">Rating Snapshot</div>
+          <div className="histogram-filter-helper">
+            Select a row below to filter reviews.
+          </div>
+          <div
+            onClick={() => {
+              this.props.ratingFilterHandler(5);
+              this.props.reviewDisplayToggleHandlerTrue();
+            }}
+            className="histogram-five-star-container"
+          >
             <div className="histogram-rating">
               5<FontAwesomeIcon icon={faStar} />
             </div>
@@ -97,7 +144,13 @@ export default class ReviewHistogram extends Component {
               {ratingCount.ratingFive}
             </div>
           </div>
-          <div onClick={() => {this.props.ratingFilterHandler(4); this.props.reviewDisplayToggleHandlerTrue()}} className="histogram-four-star-container">
+          <div
+            onClick={() => {
+              this.props.ratingFilterHandler(4);
+              this.props.reviewDisplayToggleHandlerTrue();
+            }}
+            className="histogram-four-star-container"
+          >
             <div className="histogram-rating">
               4<FontAwesomeIcon icon={faStar} />
             </div>
@@ -115,7 +168,13 @@ export default class ReviewHistogram extends Component {
               {ratingCount.ratingFour}
             </div>
           </div>
-          <div onClick={() => {this.props.ratingFilterHandler(3); this.props.reviewDisplayToggleHandlerTrue()}} className="histogram-three-star-container" >
+          <div
+            onClick={() => {
+              this.props.ratingFilterHandler(3);
+              this.props.reviewDisplayToggleHandlerTrue();
+            }}
+            className="histogram-three-star-container"
+          >
             <div className="histogram-rating">
               3<FontAwesomeIcon icon={faStar} />
             </div>
@@ -133,7 +192,13 @@ export default class ReviewHistogram extends Component {
               {ratingCount.ratingThree}
             </div>
           </div>
-          <div onClick={() => {this.props.ratingFilterHandler(2); this.props.reviewDisplayToggleHandlerTrue()}} className="histogram-two-star-container" >
+          <div
+            onClick={() => {
+              this.props.ratingFilterHandler(2);
+              this.props.reviewDisplayToggleHandlerTrue();
+            }}
+            className="histogram-two-star-container"
+          >
             <div className="histogram-rating">
               2<FontAwesomeIcon icon={faStar} />
             </div>
@@ -151,7 +216,13 @@ export default class ReviewHistogram extends Component {
               {ratingCount.ratingTwo}
             </div>
           </div>
-          <div onClick={() => {this.props.ratingFilterHandler(1); this.props.reviewDisplayToggleHandlerTrue()}} className="histogram-one-star-container" >
+          <div
+            onClick={() => {
+              this.props.ratingFilterHandler(1);
+              this.props.reviewDisplayToggleHandlerTrue();
+            }}
+            className="histogram-one-star-container"
+          >
             <div className="histogram-rating">
               1<FontAwesomeIcon icon={faStar} />
             </div>
@@ -170,7 +241,28 @@ export default class ReviewHistogram extends Component {
             </div>
           </div>
         </div>
-        <div className="review-overall-rating-container"></div>
+        <div className="review-overall-rating-container">
+          <div className="review-summary-header">
+            <h3>Average Customer Ratings</h3>
+          </div>
+          <div className="overall-star-rating-container">
+            <div className="star-rating-overall-text">
+              <span>Overall </span>
+            </div>
+            <div className="review-average-stars">
+              <div className="review-average-stars-background"></div>
+              <div
+                className="review-average-stars-foreground"
+                style={{ width: `${averageReviewCount}%` }}
+              ></div>
+            </div>
+            <div className="review-average-count-num-container">
+              <span className="review-average-count-num">
+                {averageCount.toString()}
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

@@ -4,79 +4,156 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import moment from 'moment';
 
 export default function ModalSingleReview({ singleReview }) {
-  let reviewStars = (rating) => {
+  // let reviewStars = (rating) => {
+  //   if (rating === 1) {
+  //     return (
+  //       <div>
+  //         <span>
+  //           <FontAwesomeIcon icon={faStar} />
+  //         </span>
+  //       </div>
+  //     );
+  //   } else if (rating === 2) {
+  //     return (
+  //       <div>
+  //         <span>
+  //           <FontAwesomeIcon icon={faStar} />
+  //         </span>
+  //         <span>
+  //           <FontAwesomeIcon icon={faStar} />
+  //         </span>
+  //       </div>
+  //     );
+  //   } else if (rating === 3) {
+  //     return (
+  //       <div>
+  //         <span>
+  //           <FontAwesomeIcon icon={faStar} />
+  //         </span>
+  //         <span>
+  //           <FontAwesomeIcon icon={faStar} />
+  //         </span>
+  //         <span>
+  //           <FontAwesomeIcon icon={faStar} />
+  //         </span>
+  //       </div>
+  //     );
+  //   } else if (rating === 4) {
+  //     return (
+  //       <div>
+  //         <span>
+  //           <FontAwesomeIcon icon={faStar} />
+  //         </span>
+  //         <span>
+  //           <FontAwesomeIcon icon={faStar} />
+  //         </span>
+  //         <span>
+  //           <FontAwesomeIcon icon={faStar} />
+  //         </span>
+  //         <span>
+  //           <FontAwesomeIcon icon={faStar} />
+  //         </span>
+  //       </div>
+  //     );
+  //   } else {
+  //     return (
+  //       <div>
+  //         <span>
+  //           <FontAwesomeIcon icon={faStar} />
+  //         </span>
+  //         <span>
+  //           <FontAwesomeIcon icon={faStar} />
+  //         </span>
+  //         <span>
+  //           <FontAwesomeIcon icon={faStar} />
+  //         </span>
+  //         <span>
+  //           <FontAwesomeIcon icon={faStar} />
+  //         </span>
+  //         <span>
+  //           <FontAwesomeIcon icon={faStar} />
+  //         </span>
+  //       </div>
+  //     );
+  //   }
+  // };
+
+  let starCount = () => {
+    let { rating } = singleReview;
+    
+    if (rating === 5) {
+      return (
+        <span className="review-home-star-container">
+          <FontAwesomeIcon icon={faStar} />
+          <FontAwesomeIcon icon={faStar} />
+          <FontAwesomeIcon icon={faStar} />
+          <FontAwesomeIcon icon={faStar} />
+          <FontAwesomeIcon icon={faStar} />
+        </span>
+      );
+    }
+    if (rating === 4) {
+      return (
+        <span className="review-home-star-container">
+          <span className="review-home-star-container2">
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStar} />
+          </span>
+          <span className="review-home-stars">
+            <FontAwesomeIcon icon={faStar} />
+          </span>
+        </span>
+      );
+    }
+    if (rating === 3) {
+      return (
+        <span className="review-home-star-container">
+          <span className="review-home-star-container2">
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStar} />
+          </span>
+          <span className="review-home-stars">
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStar} />
+          </span>
+        </span>
+      );
+    }
+    if (rating === 2) {
+      return (
+        <span className="review-home-star-container">
+          <span className="review-home-star-container2">
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStar} />
+          </span>
+          <span className="review-home-stars">
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStar} />
+          </span>
+        </span>
+      );
+    }
     if (rating === 1) {
       return (
-        <div>
-          <span>
+        <span className="review-home-star-container">
+          <span className="review-home-star-container2">
             <FontAwesomeIcon icon={faStar} />
           </span>
-        </div>
-      );
-    } else if (rating === 2) {
-      return (
-        <div>
-          <span>
+          <span className="review-home-stars">
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStar} />
             <FontAwesomeIcon icon={faStar} />
           </span>
-          <span>
-            <FontAwesomeIcon icon={faStar} />
-          </span>
-        </div>
-      );
-    } else if (rating === 3) {
-      return (
-        <div>
-          <span>
-            <FontAwesomeIcon icon={faStar} />
-          </span>
-          <span>
-            <FontAwesomeIcon icon={faStar} />
-          </span>
-          <span>
-            <FontAwesomeIcon icon={faStar} />
-          </span>
-        </div>
-      );
-    } else if (rating === 4) {
-      return (
-        <div>
-          <span>
-            <FontAwesomeIcon icon={faStar} />
-          </span>
-          <span>
-            <FontAwesomeIcon icon={faStar} />
-          </span>
-          <span>
-            <FontAwesomeIcon icon={faStar} />
-          </span>
-          <span>
-            <FontAwesomeIcon icon={faStar} />
-          </span>
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <span>
-            <FontAwesomeIcon icon={faStar} />
-          </span>
-          <span>
-            <FontAwesomeIcon icon={faStar} />
-          </span>
-          <span>
-            <FontAwesomeIcon icon={faStar} />
-          </span>
-          <span>
-            <FontAwesomeIcon icon={faStar} />
-          </span>
-          <span>
-            <FontAwesomeIcon icon={faStar} />
-          </span>
-        </div>
+        </span>
       );
     }
   };
+
   let modalQuestions = () => {
     let { location, dislikes, likes } = singleReview;
     if (location && dislikes && likes) {
@@ -118,7 +195,7 @@ export default function ModalSingleReview({ singleReview }) {
     <div className="modal-single-review-content">
       <div className="modal-single-content-header">
         <div className="modal-review-stars">
-          {reviewStars(singleReview.rating)}
+          {starCount()}
         </div>
         <div className="modal-single-writer">
           <div className="modal-single-review-nickname">
