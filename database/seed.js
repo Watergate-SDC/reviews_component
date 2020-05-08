@@ -5,6 +5,7 @@ let createProductsWithReviews = (i) => {
   let product = {};
   product.image = `https://hrla36fec.s3.us-east-2.amazonaws.com/images/image${i}.png`;
   product.productID = i;
+  product.productTitle = faker.commerce.productName()
   product.reviews = [];
   for (let j = 0; j < 10; j++) {
     let rating = [5, 4, 3, 2, 1];
