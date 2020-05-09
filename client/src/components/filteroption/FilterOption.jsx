@@ -37,7 +37,6 @@ export default class FilterOption extends Component {
 
 
   render() {
-    console.log('insideFilterOption', this.props.reviewData)
     return(
       <div className="reviews-filter-container">
       <div className="reviews-filter-count">

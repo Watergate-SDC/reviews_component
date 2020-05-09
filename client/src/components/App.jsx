@@ -10,6 +10,7 @@ import '../../dist/styles/reviews-filter-review.css'
 import '../../dist/styles/reviews-histogram.css'
 import '../../dist/styles/reviews-display.css'
 import '../../dist/styles/reviews-home-review.css'
+import '../../dist/styles/reviews-write-review-modal.css'
 import MainSearchBar from './searchbar/MainSearchBar.jsx';
 import MainSearchButton from './searchbutton/MainSearchButton.jsx';
 import SearchModal from '../components/searchmodal/SearchModal.jsx';
@@ -17,6 +18,8 @@ import WriteReview from './writereview/WriteReview.jsx';
 import FilterOption from './filteroption/FilterOption.jsx'
 import ReviewHistogram from './reviewhistogram/ReviewHistogram.jsx';
 import ReviewDisplay from './reviewdisplay/ReviewDisplay.jsx'
+import WriteReviewModal from './writereview/WriteReviewModal.jsx'
+
 
 export default class App extends Component {
   constructor(props) {
@@ -31,7 +34,8 @@ export default class App extends Component {
       singleReviewToggle: false,
       filteredRatingData: [],
       reviewDisplayToggle: false, 
-      reviewLimit: 8
+      reviewLimit: 8,
+      writeReviewToggle: false
     };
     this.getData = this.getData.bind(this);
     this.getRatings = this.getRatings.bind(this)
@@ -44,6 +48,7 @@ export default class App extends Component {
     this.reviewDisplayToggleHandlerTrue = this.reviewDisplayToggleHandlerTrue.bind(this)
     this.reviewDisplayToggleHandlerFalse = this.reviewDisplayToggleHandlerFalse.bind(this)
     this.onLoadMore = this.onLoadMore.bind(this)
+    this.writeReviewToggleHandler = this.writeReviewToggleHandler.bind(this)
   }
 
   componentDidMount() {
@@ -54,14 +59,12 @@ export default class App extends Component {
   getFilteredData() {
     let { reviewSearch } = this.state;
     axios
-      .get(`/reviews/searchQuery/1`, { params: { query: reviewSearch } })
+      .get(`/reviews/searchQuery/11`, { params: { query: reviewSearch } })
       .then((data) => {
         this.setState(
           {
             filteredReviewData: data.data
-          },
-          () => console.log('All data retrieved', this.state)
-        );
+          });
       });
   }
 
@@ -95,8 +98,7 @@ export default class App extends Component {
     this.setState(
       {
         [name]: value
-      },
-      () => console.log(this.state.reviewSearch)
+      }
     );
   }
 
@@ -123,13 +125,13 @@ export default class App extends Component {
     }
     this.setState({
       filteredRatingData: reviewFilteredData
-    }, () => console.log('statttee', this.state))
+    })
   }
 
   reviewDisplayToggleHandlerTrue(){
     this.setState({
       reviewDisplayToggle: true
-    }, ()=> console.log('TOGGLE CHANGE', this.state.reviewDisplayToggle))
+    })
   }
   reviewDisplayToggleHandlerFalse(){
     this.setState({
@@ -142,10 +144,15 @@ export default class App extends Component {
       reviewLimit: this.state.reviewLimit + 8
     })
   }
+
+  writeReviewToggleHandler(){
+    this.setState({
+      writeReviewToggle: !this.state.writeReviewToggle
+    });
+}
   
 
   render() {
-    console.log('inside App', this.state.reviewData)
     return (
       <div className="review-main-container">
         <hr className="search-line"></hr>
@@ -168,7 +175,7 @@ export default class App extends Component {
         </div>
         <hr className="search-line"></hr>
         <div className="main-write-review-container">
-          <WriteReview />
+          <WriteReview writeReviewToggle={this.state.writeReviewToggle} writeReviewToggleHandler={this.writeReviewToggleHandler}/>
         </div>
         <div className="reviews-histogram-container">
           <ReviewHistogram ratingsData={this.state.ratingsData} ratingFilterHandler={this.ratingFilterHandler} reviewDisplayToggleHandlerTrue={this.reviewDisplayToggleHandlerTrue}/>
@@ -178,6 +185,9 @@ export default class App extends Component {
         </div>
         <div className="review-display-container">
           <ReviewDisplay filteredRatingData={this.state.filteredRatingData} reviewData={this.state.reviewData} reviewDisplayToggle={this.state.reviewDisplayToggle} reviewDisplayToggleHandlerFalse={this.reviewDisplayToggleHandlerFalse} reviewLimit={this.state.reviewLimit} />
+        </div>
+        <div className="main-write-review-modal-container">
+          <WriteReviewModal writeReviewToggleHandler={this.writeReviewToggleHandler} writeReviewToggle={this.state.writeReviewToggle} reviewData={this.state.reviewData}/>
         </div>
         <div className="review-display-load-more-container">
           <button className="review-load-more-button" onClick={this.onLoadMore}><span className="review-load-more-text">Load More</span></button>

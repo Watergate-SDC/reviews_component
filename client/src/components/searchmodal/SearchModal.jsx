@@ -53,9 +53,9 @@ export default class SearchModal extends React.Component {
   searchBarDisplayHandler() {
     let { singleViewToggle } = this.state;
     let startingNum;
-    let endingNum = this.props.filteredReviewData.length - 1;
+    let endingNum = this.props.filteredReviewData.length;
 
-    if (this.props.filteredReviewData.length < 1) {
+    if (this.props.filteredReviewData.length === 0) {
       startingNum = 0;
     } else {
       startingNum = 1;

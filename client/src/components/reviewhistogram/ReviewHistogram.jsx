@@ -10,7 +10,6 @@ export default class ReviewHistogram extends Component {
     };
     this.getCount = this.getCount.bind(this);
     this.allReviewCount = this.allReviewCount.bind(this);
-    // this.ratingFilterHandler = this.ratingFilterHandler.bind(this)
   }
 
   getCount() {
@@ -56,21 +55,6 @@ export default class ReviewHistogram extends Component {
     return allCount;
   }
 
-  // ratingFilterHandler(num) {
-  //   let reviewFilteredData = []
-  //   let { ratingsData } = this.props
-  //   for(let i = 0; i < ratingsData.length; i++){
-  //     for(let j = 0; j < ratingsData[i].length; j++){
-  //       if(ratingsData[i][j].rating === num){
-  //         reviewFilteredData.push(ratingsData[i][j])
-  //       }
-  //     }
-  //   }
-  //   this.setState({
-  //     filteredRatingData: reviewFilteredData
-  //   }, () => console.log('statttee', this.state))
-  // }
-
   averageCountHandler() {
     if (this.props.ratingsData === []) {
       return 0;
@@ -112,7 +96,6 @@ export default class ReviewHistogram extends Component {
             ratingCount.ratingThree +
             ratingCount.ratingTwo +
             ratingCount.ratingOne);
-    console.log('xcvxczv', averageReviewCount, '--->', averageCount);
     return (
       <div className="review-histogram-container">
         <div className="histogram-bar-container">

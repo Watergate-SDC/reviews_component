@@ -144,7 +144,6 @@ export default function FilteredReviewEntries({ review }) {
   };
 
 
-  console.log('insideThisShit', review)
   return(
     <div className="all-review-entry-container">
     <div className="review-content-header">

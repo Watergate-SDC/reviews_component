@@ -198,7 +198,6 @@ export default function ModalContentEntry({ modalContent, singleReviewClickHandl
     toggleClickHandler()
   }
 
-  console.log('ModalContentEntry', modalContent);
   return (
     <div className="modal-content">
       <div className="modal-content-header">

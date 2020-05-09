@@ -3,9 +3,11 @@ export default class WriteReview extends Component {
   constructor(props){
     super(props)
     this.state = {
-  
+      
     }
   }
+
+
 
 
   render(){
@@ -15,7 +17,7 @@ export default class WriteReview extends Component {
           <h2>Reviews</h2>
         </div>
         <div className="write-review-button-container">
-          <button className="write-review-button">WRITE A REVIEW</button>
+          <button onClick={this.props.writeReviewToggleHandler} className="write-review-button">WRITE A REVIEW</button>
         </div>
       </div>
     )

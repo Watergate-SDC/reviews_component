@@ -17,3 +17,5 @@ app.use(express.static(path.join(__dirname, '../client/dist')))
 app.use('/', router)
 
 app.listen(port, () => console.log(`Server running, catch it on port ${port}`))
+
+module.exports = app

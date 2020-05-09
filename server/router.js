@@ -4,9 +4,8 @@ const controller = require('./controller');
 router.route('/reviews').get(controller.getAll);
 router.route('/reviews/searchQuery/:id').get(controller.searchQuery);
 
-router.route('/reviews/:id').get(controller.getOne);
+router.route('/reviews/:id').get(controller.getOne).post(controller.postReview);
 
-router.route('/reviews/rating/:id').get(controller.getRatings)
-
+router.route('/reviews/rating/:id').get(controller.getRatings);
 
 module.exports = router;

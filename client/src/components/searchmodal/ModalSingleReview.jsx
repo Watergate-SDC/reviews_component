@@ -190,7 +190,6 @@ export default function ModalSingleReview({ singleReview }) {
     }
   };
 
-  console.log('singleReview in ModalSingle', singleReview);
   return (
     <div className="modal-single-review-content">
       <div className="modal-single-content-header">
