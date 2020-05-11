@@ -78,11 +78,16 @@ export default class ReviewHistogram extends Component {
     let ratingCount = this.getCount();
     let totalReviews = this.allReviewCount();
     let averageReviewCount =
-      ratingCount.ratingFive * 5 +
+      (ratingCount.ratingFive * 5 +
       ratingCount.ratingFour * 4 +
       ratingCount.ratingThree * 3 +
       ratingCount.ratingTwo * 2 +
-      ((ratingCount.ratingOne * 1) / totalReviews) * 100;
+      ratingCount.ratingOne * 1 )/ (ratingCount.ratingFive +
+        ratingCount.ratingFour +
+        ratingCount.ratingThree +
+        ratingCount.ratingTwo +
+        ratingCount.ratingOne) * 20
+
     let averageCount =
       this.props.ratingsData === []
         ? 0

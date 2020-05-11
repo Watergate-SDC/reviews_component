@@ -59,7 +59,7 @@ export default class App extends Component {
   getFilteredData() {
     let { reviewSearch } = this.state;
     axios
-      .get(`/reviews/searchQuery/11`, { params: { query: reviewSearch } })
+      .get(`/reviews/searchQuery/12`, { params: { query: reviewSearch } })
       .then((data) => {
         this.setState(
           {
@@ -69,7 +69,7 @@ export default class App extends Component {
   }
 
   getData() {
-    axios.get(`/reviews/11`).then((data) => {
+    axios.get(`/reviews/12`).then((data) => {
       this.setState(
         {
           reviewData: data.data
@@ -78,7 +78,7 @@ export default class App extends Component {
   }
 
   getRatings(){
-    axios.get(`/reviews/rating/11`)
+    axios.get(`/reviews/rating/12`)
     .then(data => {
       this.setState({
         ratingsData: data.data
