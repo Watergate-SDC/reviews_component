@@ -35,7 +35,8 @@ export default class App extends Component {
       filteredRatingData: [],
       reviewDisplayToggle: false, 
       reviewLimit: 8,
-      writeReviewToggle: false
+      writeReviewToggle: false,
+      randomId: 1
     };
     this.getData = this.getData.bind(this);
     this.getRatings = this.getRatings.bind(this)
@@ -52,14 +53,18 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    this.getData();
-    this.getRatings()
+    const randomIdGen = Math.ceil(Math.random() * 100)
+    this.setState({randomId: randomIdGen}, () => {
+      this.getData(this.state.randomId);
+      this.getRatings(this.state.randomId)
+    })
+
   }
 
-  getFilteredData() {
+  getFilteredData(id) {
     let { reviewSearch } = this.state;
     axios
-      .get(`/reviews/searchQuery/12`, { params: { query: reviewSearch } })
+      .get(`/reviews/searchQuery/${id}`, { params: { query: reviewSearch } })
       .then((data) => {
         this.setState(
           {
@@ -68,8 +73,8 @@ export default class App extends Component {
       });
   }
 
-  getData() {
-    axios.get(`/reviews/12`).then((data) => {
+  getData(id) {
+    axios.get(`/reviews/${id}`).then((data) => {
       this.setState(
         {
           reviewData: data.data
@@ -77,8 +82,8 @@ export default class App extends Component {
     });
   }
 
-  getRatings(){
-    axios.get(`/reviews/rating/12`)
+  getRatings(id){
+    axios.get(`/reviews/rating/${id}`)
     .then(data => {
       this.setState({
         ratingsData: data.data
@@ -87,7 +92,6 @@ export default class App extends Component {
   }
 
   modalHandler() {
-    // e.preventDefault()
     this.setState({
       modalToggle: !this.state.modalToggle
     });
@@ -103,7 +107,7 @@ export default class App extends Component {
   }
 
   onSearchClick() {
-    this.getFilteredData();
+    this.getFilteredData(this.state.randomId);
     this.modalHandler();
   }
 
@@ -153,6 +157,7 @@ export default class App extends Component {
   
 
   render() {
+    console.log('statein app', this.state.randomId)
     return (
       <div className="review-main-container">
         <hr className="search-line"></hr>

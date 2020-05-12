@@ -1,25 +1,24 @@
 import React, { Component } from 'react';
+
 export default class WriteReview extends Component {
-  constructor(props){
-    super(props)
+  constructor(props) {
+    super(props);
     this.state = {
-      
-    }
+
+    };
   }
 
 
-
-
-  render(){
-    return(
+  render() {
+    return (
       <div className="write-review-container">
         <div className="write-review-header">
           <h2>Reviews</h2>
         </div>
         <div className="write-review-button-container">
-          <button onClick={this.props.writeReviewToggleHandler} className="write-review-button">WRITE A REVIEW</button>
+          <button type="button" onClick={this.props.writeReviewToggleHandler} className="write-review-button">WRITE A REVIEW</button>
         </div>
       </div>
-    )
+    );
   }
 }
