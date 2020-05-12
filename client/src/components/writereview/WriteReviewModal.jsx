@@ -36,7 +36,6 @@ export default class WriteReviewModal extends Component {
 
 
   render() {
-    console.log('props in write modal', this.state)
     const data = this.getDataUrl();
     return (
       <div
@@ -75,7 +74,7 @@ export default class WriteReviewModal extends Component {
                   <span className="overall-rating-title"> Overall Rating* </span>
                   <div className="overall-rating-container">
                     <span className="overall-rating-star-container">
-                      <span name="ratingHover" value="excellent" onMouseEnter={this.hoverRatingEventHandler}>&#9733;</span>
+                      <span name="ratingHover" value="excellent">&#9733;</span>
                       <span name="ratingHover" value="good">&#9733;</span>
                       <span name="ratingHover" value="average">&#9733;</span>
                       <span name="ratingHover" value="fair">&#9733;</span>
