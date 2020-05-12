@@ -157,7 +157,6 @@ export default class App extends Component {
   
 
   render() {
-    console.log('statein app', this.state.randomId)
     return (
       <div className="review-main-container">
         <hr className="search-line"></hr>

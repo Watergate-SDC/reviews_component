@@ -6,9 +6,10 @@ export default class WriteReviewModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      ratingHover: ""
     };
     this.getDataUrl = this.getDataUrl.bind(this);
+    this.hoverRatingEventHandler = this.hoverRatingEventHandler.bind(this)
   }
 
   getDataUrl() {
@@ -20,7 +21,6 @@ export default class WriteReviewModal extends Component {
     if (reviewData === undefined) {
       return null;
     }
-    let imgUrl;
     for (let i = 0; i < reviewData.length; i++) {
       productData.imageUrl = reviewData[i].image;
       productData.productTitle = reviewData[i].productTitle;
@@ -28,8 +28,15 @@ export default class WriteReviewModal extends Component {
     return productData;
   }
 
+  hoverRatingEventHandler(e){
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
 
   render() {
+    console.log('props in write modal', this.state)
     const data = this.getDataUrl();
     return (
       <div
@@ -68,11 +75,11 @@ export default class WriteReviewModal extends Component {
                   <span className="overall-rating-title"> Overall Rating* </span>
                   <div className="overall-rating-container">
                     <span className="overall-rating-star-container">
-                      <span name="excellent">&#9733;</span>
-                      <span name="good">&#9733;</span>
-                      <span name="average">&#9733;</span>
-                      <span name="fair">&#9733;</span>
-                      <span name="poor">&#9733;</span>
+                      <span name="ratingHover" value="excellent" onMouseEnter={this.hoverRatingEventHandler}>&#9733;</span>
+                      <span name="ratingHover" value="good">&#9733;</span>
+                      <span name="ratingHover" value="average">&#9733;</span>
+                      <span name="ratingHover" value="fair">&#9733;</span>
+                      <span name="ratingHover" value="poor">&#9733;</span>
                     </span>
                     <span className="write-review-average-title" />
                   </div>

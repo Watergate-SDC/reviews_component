@@ -17,7 +17,7 @@ module.exports = {
       .catch((err) => res.status(400).send(err));
   },
   searchQuery: (req, res) => {
-    console.log("reqQuery", req.query)
+    console.log('reqQuery', req.query);
     let obj = {
       image: req.params.id,
       queryStr: req.query.query
@@ -68,7 +68,7 @@ module.exports = {
         res.status(200).send('posted review');
       })
       .catch((err) => {
-        res.status(400).send('could not post review');
+        res.status(400).send('could not post review', err);
       });
   }
 };
