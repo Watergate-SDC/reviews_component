@@ -13,7 +13,7 @@ body {
   font-family: 'Calibri', 'open Sans', sans-serif;
 }
 
-.review-main-container {
+review-main-container {
   max-width: 100%;
   margin: 64px 0 192px;
   padding: 0 20px;
@@ -84,11 +84,12 @@ body {
   text-align: center;
   padding: 5px 14px;
   line-height: 20px;
-  font-size: 12px;
+  font-size: 14px;
   border: none;
   background-color: rgb(235, 235, 235);
   outline: none;
-  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  /* font-weight: bold; */
 }
 
 .review-load-more-button:hover{

@@ -11,4 +11,5 @@ router.route('/reviews/:id')
 
 router.route('/reviews/rating/:id').get(controller.getRatings);
 
+
 module.exports = router;

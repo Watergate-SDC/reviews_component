@@ -64,7 +64,7 @@ export default class App extends Component {
   getFilteredData(id) {
     let { reviewSearch } = this.state;
     axios
-      .get(`/reviews/searchQuery/${id}`, { params: { query: reviewSearch } })
+      .get(`http://localhost:9000/reviews/searchQuery/${id}`, { params: { query: reviewSearch }, headers:{'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json'} }, )
       .then((data) => {
         this.setState(
           {
@@ -74,7 +74,7 @@ export default class App extends Component {
   }
 
   getData(id) {
-    axios.get(`/reviews/${id}`).then((data) => {
+    axios.get(`http://localhost:9000/reviews/${id}`, {headers:{'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json'}}).then((data) => {
       this.setState(
         {
           reviewData: data.data
@@ -83,7 +83,7 @@ export default class App extends Component {
   }
 
   getRatings(id){
-    axios.get(`/reviews/rating/${id}`)
+    axios.get(`http://localhost:9000/reviews/rating/${id}`, {headers:{'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json'}})
     .then(data => {
       this.setState({
         ratingsData: data.data

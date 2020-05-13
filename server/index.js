@@ -18,4 +18,11 @@ app.use('/', router)
 
 app.listen(port, () => console.log(`Server running, catch it on port ${port}`))
 
+app.get('/main.js', (req, res) => {
+  if(err){
+    console.log(err)
+  }
+  res.status(200).sendFile('./client/dist')
+})
+
 module.exports = app

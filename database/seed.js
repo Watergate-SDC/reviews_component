@@ -1,6 +1,7 @@
 var model = require('./index');
 var faker = require('faker')
 
+//function to create 10 reviews within one product
 let createProductsWithReviews = (i) => {
   let product = {};
   product.image = `https://hrla36fec.s3.us-east-2.amazonaws.com/images/image${i}.png`;
