@@ -12,6 +12,11 @@ body {
   z-index: 10;
 }
 
+.search-line-modal{
+  width: 94% !important;
+  border: .5px solid rgb(211, 210, 211);
+}
+
 .review-search-modal {
   position: fixed;
   background: white;

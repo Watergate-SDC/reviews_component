@@ -1,10 +1,12 @@
 .modal-header {
-  margin-left: 20px;
+  margin-left: 13px;
+  border: none;
 }
 
 .modal-review-count-container {
   margin-left: 30px;
   padding-bottom: 30px;
+  font-size: 14px;
 }
 
 .modal-review-stars {
@@ -14,16 +16,23 @@
 
 .modal-content-title-container, h3 {
   font-weight: normal;
+  font-size: 20px !important;
 }
 
 .modal-content-container {
   margin-left: 25px;
   margin-right: 25px;
+  border: none;
+}
+
+.modal-content {
+  border: none;
 }
 
 .modal-content-header {
   display: flex;
   flex-direction: row;
+  margin-bottom: 5px;
 }
 
 .modal-review-nickname {

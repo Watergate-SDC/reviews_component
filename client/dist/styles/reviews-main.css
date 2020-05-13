@@ -26,35 +26,35 @@ body {
 }
 
 .search-line-review {
-  width: 100%;
+  width: 100% !important;
   border: .5px solid rgb(211, 210, 211);
   margin: 20px 0px 20px 0px;
 }
 
 .search-line{
-  width: 100%;
+  width: 100% !important;
   border: .5px solid rgb(211, 210, 211);
 }
 
-main-search-bar-container {
-  padding: 7px 10px;
+.main-search-bar-container {
+  padding: 7px 10px !important;
   
 }
 
 .main-review-search-input {
-  height: 16px;
-  width: 20em;
-  padding: 0.5em 10px 0.5em 10px;
-  border: .3px solid rgb(233, 233, 233);
-  border-radius: 3px 0% 0% 3px;
-  outline: none;
-  font-size: 14px;
-  border: 1px solid rgb(179, 178, 179);
+  height: 32px !important;
+  width: 20em !important;
+  padding: 0.5em 10px 0.5em 10px !important;
+  border: .3px solid rgb(233, 233, 233) !important;
+  border-radius: 3px 0% 0% 3px !important;
+  outline: none !important;
+  font-size: 14px !important;
+  border: 1px solid rgb(179, 178, 179) !important;
   /* box-shadow: none; */
 }
 
 .main-review-search-input:focus{
-  border: 1px solid black;
+  border: 1px solid black !important;
 }
 
 .main-review-search-button{

@@ -72,7 +72,7 @@ export default class SearchModal extends React.Component {
               <ModalSearchButton getFilteredData={this.props.getFilteredData} />
             </span>
           </div>
-          <hr className="search-line"></hr>
+          <hr className="search-line-modal"></hr>
           <div className="modal-header">
             <h2>Search Results</h2>
           </div>
