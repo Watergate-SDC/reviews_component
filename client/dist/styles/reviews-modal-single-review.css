@@ -6,6 +6,9 @@
 .modal-single-writer {
   display: flex;
   flex-direction: row;
+  font-size: 14px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .modal-single-review-nickname{
