@@ -20,18 +20,19 @@
 
 .review-home-nickname {
   margin-left: 5px;
-  font-size: 13px;
+  font-size: 14px;
   align-items: center;
 }
 
 .review-home-created {
   margin-left: 5px;
-  font-size: 13px;
+  font-size: 14px;
   align-self: center;
 }
 
 .review-home-title-h3 {
   margin-top: 5px;
+  font-size: 20px;
 }
 
 .review-home-content-body-container{
@@ -39,11 +40,11 @@
 }
 
 .review-home-content-body {
-  font-size: 13px;
+  font-size: 16px;
 }
 
 .review-home-product-question-container {
-  font-size: 13px;
+  font-size: 14px;
   margin-top: 10px;
   margin-bottom: 20px;
 }
@@ -57,7 +58,7 @@
 }
 
 .review-home-recommendation {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .review-recommendation-icon {

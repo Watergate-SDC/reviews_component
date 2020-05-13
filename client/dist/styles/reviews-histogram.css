@@ -23,20 +23,20 @@ width 210
 
 .histogram-title {
   width: 100%;
-  font-size: 12px;
+  font-size: 14px;
   margin: 5px;
   padding: 5px;
 }
 
 .histogram-filter-helper {
-  font-size: 14px;
+  font-size: 16px;
   margin: 0px 5px 5px;
   padding: 0px 5px 5px;
   width: 100%;
 }
 
 .histogram-rating {
-  font-size: 13px;
+  font-size: 16px;
   margin-right: 8px;
 }
 
@@ -47,7 +47,7 @@ width 210
 }
 
 .histogram-rating-score {
-  font-size: 13px;
+  font-size: 16px;
   padding-left: 20px;
   align-self: center;
 }
@@ -201,7 +201,7 @@ width 210
 }
 
 .review-summary-header {
-  font-size: 10px;
+  font-size: 14px;
 }
 
 .overall-star-rating-container{
@@ -212,7 +212,7 @@ width 210
 }
 
 .star-rating-overall-text {
-  font-size: 13px;
+  font-size: 16px;
   margin-right: 10px;
 }
 
@@ -246,7 +246,7 @@ width 210
 }
 
 .review-average-count-num {
-  font-size: 13px;
+  font-size: 16px;
 }
 
 /* 
