@@ -5,7 +5,7 @@ html,
 body {
   height: 100%;
   padding: 0;
-  margin: 20px;
+  /* margin: 20px; */
   background-color: #fafafa;
 }
 
@@ -13,11 +13,12 @@ body {
   font-family: 'Calibri', 'open Sans', sans-serif;
 }
 
-review-main-container {
+.review-main-container {
   max-width: 100%;
   margin: 64px 0 192px;
   padding: 0 20px;
   height: 100%;
+
 }
 
 .main-search-modal-container{
