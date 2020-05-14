@@ -50,6 +50,7 @@ export default class App extends Component {
     this.reviewDisplayToggleHandlerFalse = this.reviewDisplayToggleHandlerFalse.bind(this)
     this.onLoadMore = this.onLoadMore.bind(this)
     this.writeReviewToggleHandler = this.writeReviewToggleHandler.bind(this)
+    this.onModalSearchClick = this.onModalSearchClick.bind(this)
   }
 
   componentDidMount() {
@@ -109,6 +110,10 @@ export default class App extends Component {
   onSearchClick() {
     this.getFilteredData(this.state.randomId);
     this.modalHandler();
+  }
+
+  onModalSearchClick(){
+    this.getFilteredData(this.state.randomId);
   }
 
   singleReviewClickHandler(data) {
@@ -172,7 +177,7 @@ export default class App extends Component {
             handleClose={this.modalHandler}
             filteredReviewData={this.state.filteredReviewData}
             searchQueryChanger={this.searchQueryChanger}
-            getFilteredData={this.getFilteredData}
+            getFilteredData={this.onModalSearchClick}
             singleReview={this.state.singleReview}
             singleReviewClickHandler={this.singleReviewClickHandler}
           />
