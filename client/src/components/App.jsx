@@ -196,7 +196,7 @@ export default class App extends Component {
           <ReviewDisplay filteredRatingData={this.state.filteredRatingData} reviewData={this.state.reviewData} reviewDisplayToggle={this.state.reviewDisplayToggle} reviewDisplayToggleHandlerFalse={this.reviewDisplayToggleHandlerFalse} reviewLimit={this.state.reviewLimit} />
         </div>
         <div className="main-write-review-modal-container">
-          <WriteReviewModal writeReviewToggleHandler={this.writeReviewToggleHandler} writeReviewToggle={this.state.writeReviewToggle} reviewData={this.state.reviewData}/>
+          <WriteReviewModal getData={this.getData} writeReviewToggleHandler={this.writeReviewToggleHandler} writeReviewToggle={this.state.writeReviewToggle} reviewData={this.state.reviewData}/>
         </div>
         <div className="review-display-load-more-container">
           <button className="review-load-more-button" onClick={this.onLoadMore}><span className="review-load-more-text">Load More</span></button>

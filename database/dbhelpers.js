@@ -14,7 +14,7 @@ module.exports = {
       }
     ]),
   getRatings: (id) => database.find({ productID: id }),
-  postReview: (obj) =>
+  postReview: (obj) => 
     database.findOneAndUpdate(
       { _id: obj.id },
       {
@@ -59,4 +59,5 @@ module.exports = {
         }
       }
     )
+  
 };

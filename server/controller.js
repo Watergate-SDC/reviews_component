@@ -47,6 +47,8 @@ module.exports = {
       .catch((err) => res.status(400).send('error getting ratings'));
   },
   postReview: (req, res) => {
+    console.log('REQ BODY', req.body)
+    console.log('REQPARAMS', req.params.id)
     let obj = {
       id: req.params.id,
       rating: req.body.rating,
@@ -62,13 +64,14 @@ module.exports = {
       likes: req.body.likes,
       dislikes: req.body.dislikes
     };
+    console.log('obj in controller', obj)
     database
       .postReview(obj)
       .then(() => {
         res.status(200).send('posted review');
       })
-      .catch((err) => {
-        res.status(400).send('could not post review', err);
+      .catch(() => {
+        res.status(400).send('could not post review');
       });
   }
 };

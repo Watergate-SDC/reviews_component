@@ -7,6 +7,8 @@ router.route('/reviews/searchQuery/:id').get(controller.searchQuery);
 
 router.route('/reviews/:id')
 .get(controller.getOne)
+
+router.route('/reviewspost/:id')
 .post(controller.postReview);
 
 router.route('/reviews/rating/:id').get(controller.getRatings);
