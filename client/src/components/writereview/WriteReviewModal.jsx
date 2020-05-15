@@ -9,8 +9,10 @@ export default class WriteReviewModal extends Component {
     this.state = {
       rating: "",
       title: "",
+      review: "",
       recommendation: "",
       nickname: "",
+      email: "",
       age: {
         noAge: false,
         under18: false,
@@ -167,6 +169,44 @@ export default class WriteReviewModal extends Component {
     })
     .then(() => {
       this.props.getData(data.productID)
+      this.setState({
+        rating: "",
+        title: "",
+        review: "",
+        recommendation: "",
+        nickname: "",
+        email: "",
+        age: {
+          noAge: false,
+          under18: false,
+          between1824: false,
+          between2534: false,
+          between3544: false,
+          between4554: false,
+          between5565: false,
+          over65: false
+        },
+        bodyType: {
+          atheletic: false,
+          curvy: false,
+          lean: false,
+          muscular: false,
+          petite: false,
+          slim: false,
+          solid: false
+        },
+        location: "",
+        wearTo: {
+          practiceYoga: false,
+          dance: false,
+          cycle: false,
+          run: false,
+          wearCasually: false
+        },
+        likes: "",
+        dislikes: "",
+        agreementCheck: false
+      })
     })
     .catch(err => {
       console.log('error posting', err)
@@ -226,12 +266,12 @@ export default class WriteReviewModal extends Component {
                   <hr className="write-review-hr" />
                   <div className="write-review-form-title">
                     <span> Review Title* </span>
-                    <input onChange={this.onChangeHandler} name="title" className="write-review-title-input" placeholder="Example: Great Features!" />
+                    <input onChange={this.onChangeHandler} value={this.state.title} name="title" className="write-review-title-input" placeholder="Example: Great Features!" />
                   </div>
                   <hr className="write-review-hr" />
                   <div className="write-review-body-container">
                     <span> Review* </span>
-                    <textarea onChange={this.onChangeHandler} name="review" className="write-review-body" placeholder="Example: I bought this a month ago and am so happy that I did..." />
+                    <textarea onChange={this.onChangeHandler} value={this.state.review} name="review" className="write-review-body" placeholder="Example: I bought this a month ago and am so happy that I did..." />
                   </div>
                   <hr className="write-review-hr" />
                   <div className="write-review-recommendation-container">
@@ -244,12 +284,12 @@ export default class WriteReviewModal extends Component {
                   <hr className="write-review-hr" />
                   <div className="write-review-nickname-container">
                     <span className="write-review-nickname-title"> Nickname* </span>
-                    <input onChange={this.onChangeHandler} name="nickname" className="write-review-nickname-input" placeholder="Example: jackie27" />
+                    <input onChange={this.onChangeHandler} value={this.state.nickname} name="nickname" className="write-review-nickname-input" placeholder="Example: jackie27" />
                   </div>
                   <hr className="write-review-hr" />
                   <div className="write-review-email-container">
                     <span className="write-review-email-title"> Email* </span>
-                    <input onChange={this.onChangeHandler} name="email" className="write-review-email-input" placeholder="Example: youremail@example.com" />
+                    <input onChange={this.onChangeHandler} value={this.state.email} name="email" className="write-review-email-input" placeholder="Example: youremail@example.com" />
                   </div>
                   <hr className="write-review-hr" />
                   <div className="write-review-age-container">
@@ -283,7 +323,7 @@ export default class WriteReviewModal extends Component {
                   <hr className="write-review-hr" />
                   <div className="write-review-where-from-container">
                     <span className="write-review-where-from-title"> Where are you from? </span>
-                    <input onChange={this.onChangeHandler} name="location" className="write-review-where-from-input" />
+                    <input onChange={this.onChangeHandler} value={this.state.location} name="location" className="write-review-where-from-input" />
                   </div>
                   <hr className="write-review-hr" />
                   <div className="write-review-wear-to-container">
@@ -300,12 +340,12 @@ export default class WriteReviewModal extends Component {
                   <hr className="write-review-hr" />
                   <div className="write-review-likes-container">
                     <span className="write-review-likes-title"> In a few words, what did you like?</span>
-                    <input onChange={this.onChangeHandler} name="likes" className="write-review-likes-input" />
+                    <input onChange={this.onChangeHandler} value={this.state.likes} name="likes" className="write-review-likes-input" />
                   </div>
                   <hr className="write-review-hr" />
                   <div className="write-review-dislikes-container">
                     <span className="write-review-dislikes-title"> In a few words, what didn't you like?</span>
-                    <input onChange={this.onChangeHandler} name="dislikes"  className="write-review-dislikes-input" />
+                    <input onChange={this.onChangeHandler} value={this.state.dislikes} name="dislikes"  className="write-review-dislikes-input" />
                   </div>
                   <hr className="write-review-hr" />
                   <div className="write-review-terms-agree-container">

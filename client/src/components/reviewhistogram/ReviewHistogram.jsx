@@ -246,7 +246,7 @@ export default class ReviewHistogram extends Component {
             </div>
             <div className="review-average-count-num-container">
               <span className="review-average-count-num">
-                {averageCount.toString()}
+                {averageCount.toFixed(1).toString()}
               </span>
             </div>
           </div>
