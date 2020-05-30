@@ -5,6 +5,7 @@ const csvWriter = require('csv-write-stream');
 var productWriter = fs.createWriteStream('./products.csv');
 var reviewWriter =fs.createWriteStream('./reviews.csv');
 require('events').EventEmitter.defaultMaxListeners = 5000;
+var counter = 0;
 
 //function to create 10 reviews within one product
 let createProducts = (i) => {
@@ -242,16 +243,24 @@ let seedProducts = () => {
 };
 
 let seedReviews = () => {
-  for (let i = 0; i < 2000000; i++) {
+  for (let i = 0; i < 1000000; i++) {
+      reviewWriter.write(createReviews(i), 'utf8');
+  }
+  //console.log(reviewArr, 'before writing')
+  console.log('done writing reviews 1');
+};
+let seedReviews2 = () => {
+  for (let i = 1000000; i < 2000000; i++) {
       reviewWriter.write(createReviews(i), 'utf8');
   }
   //console.log(reviewArr, 'before writing')
   reviewWriter.end();
-  console.log('done writing reviews');
+  console.log('done writing reviews 2');
 };
 /** SEEDING IS UNCOMMENTED HERE */
 //seedProducts();
 seedReviews();
+seedReviews2();
 
 /**END SEEDING COMMENT */
 
