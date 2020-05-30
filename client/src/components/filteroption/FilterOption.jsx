@@ -12,7 +12,7 @@ export default class FilterOption extends Component {
     let secondNum
     let total
 
-    if(reviewData.length < 1){
+    if(reviewData.length < 1 || !reviewData){
       return(
         <span>0</span>
       )

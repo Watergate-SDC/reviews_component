@@ -33,7 +33,7 @@ export default class App extends Component {
       singleReview: [],
       singleReviewToggle: false,
       filteredRatingData: [],
-      reviewDisplayToggle: false, 
+      reviewDisplayToggle: false,
       reviewLimit: 8,
       writeReviewToggle: false,
       randomId: 1
@@ -76,7 +76,8 @@ export default class App extends Component {
 
   getData(id) {
     axios.get(`http://localhost:9000/reviews/${id}`, {headers:{'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json'}}).then((data) => {
-      this.setState(
+    console.log(data, "getdata call");
+    this.setState(
         {
           reviewData: data.data
         });
@@ -159,7 +160,7 @@ export default class App extends Component {
       writeReviewToggle: !this.state.writeReviewToggle
     });
 }
-  
+
 
   render() {
     return (

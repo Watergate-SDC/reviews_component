@@ -8,7 +8,9 @@
     "start": "nodemon",
     "build": "webpack --w --mode development",
     "watch": "webpack-dev-server --open",
-    "seed": "node ./database/seed.js"
+    "seed": "node --max-old-space-size=8192 ./database/seed.js",
+    "seed-products-to-db": "mongoimport --type csv -d test -c products --headerline --drop products.csv",
+    "seed-reviews-to-db": "mongoimport --type csv -d test -c reviews --fields id,rating,title,review,recommendation,nickname,email,age,bodytype,location,wearTo,likes,dislikes --drop reviews.csv"
   },
   "repository": {
     "type": "git",
@@ -23,12 +25,16 @@
     "axios": "0.19.2",
     "body-parser": "1.19.0",
     "cors": "2.8.5",
+    "csv-write-stream": "^2.0.0",
+    "events": "^3.1.0",
     "express": "4.17.1",
     "faker": "^4.1.0",
     "moment": "2.18.1",
+    "mongodb": "^2.2.33",
     "mongoose": "5.9.7",
     "morgan": "1.10.0",
     "nodemon": "2.0.2",
+    "pg": "^8.2.1",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },

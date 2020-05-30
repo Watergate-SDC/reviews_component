@@ -1,4 +1,5 @@
 const database = require('../database/dbhelpers');
+var mongoose = require('mongoose');
 
 module.exports = {
   getAll: (req, res) => {
@@ -7,14 +8,11 @@ module.exports = {
       .then((data) => res.status(200).send(data))
       .catch((err) => res.status(400).send(err));
   },
-  getOne: (req, res) => {
+  findOne: (req, res) => {
     let { id } = req.params;
+    //console.log(database);
     database
-      .getOne(id)
-      .then((data) => {
-        res.status(200).send(data);
-      })
-      .catch((err) => res.status(400).send(err));
+      .findOne(id, (data) =>  res.status(200).send(data))
   },
   searchQuery: (req, res) => {
     console.log('reqQuery', req.query);

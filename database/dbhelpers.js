@@ -1,8 +1,20 @@
 const database = require('./index');
 
 module.exports = {
-  getAll: () => database.find({}),
-  getOne: (image) => database.find({ image: { $regex: `image${image}.png` } }),
+  getAll: () => database.find(),
+  findOne: (id, callback) => {
+  let queryStr = `SELECT * FROM reviews WHERE id =${id}`;
+    database
+      //.collection('reviews')
+      //uncomment below for mong
+      //.find({id: Number(id)}),
+      .query(queryStr, (err, results)=>{
+        if(err) console.error(err)
+        console.log(results.rows);
+        callback(results.rows);
+      })
+    },
+
   searchQuery: (obj) =>
     database.aggregate([
       { $match: { image: { $regex: `image${obj.image}.png` } } },
@@ -14,7 +26,7 @@ module.exports = {
       }
     ]),
   getRatings: (id) => database.find({ productID: id }),
-  postReview: (obj) => 
+  postReview: (obj) =>
     database.findOneAndUpdate(
       { _id: obj.id },
       {
@@ -59,5 +71,5 @@ module.exports = {
         }
       }
     )
-  
+
 };
