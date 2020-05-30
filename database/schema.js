@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS reviews (
   location TEXT,
   wearTo TEXT,
   likes TEXT,
-  dislikes TEXT,
+  dislikes TEXT
 );
 
 //Mongo Schema below
